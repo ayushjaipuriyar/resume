@@ -15,7 +15,7 @@ jobs:
       
       - name: Add version
         run: |
-          fileName="resume.tex"
+          fileName="Ayush_Jaipuriyar_resume.tex"
           echo "Substituting version number ${GITHUB_SHA::7} in file $fileName"
           sed -i -e "s/version/${GITHUB_SHA::7}/" $fileName
           echo ${GITHUB_SHA::7} > version.txt
@@ -23,7 +23,7 @@ jobs:
       - name: Convert to PDF
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: resume.tex
+          root_file: Ayush_Jaipuriyar_resume.tex
 
       - name: Bump version
         id: bump_version

@@ -22,30 +22,38 @@ jobs:
           # Fetch all tags
           git fetch --tags
           # Get the latest tag
-          LATEST_TAG=$(git describe --tags --abbrev=0 || echo "0")
+          LATEST_TAG=$(git describe --tags --abbrev=0 || echo "v0")
           echo "Latest Tag: $LATEST_TAG"
-          echo "::set-output name=version::$LATEST_TAG"
+          echo "version=$LATEST_TAG" >> $GITHUB_STATE
 
       - name: Increment Version
         id: increment_version
         run: |
           # Extract version number from tag (assuming format like v1, v2, etc.)
-          VERSION=$(echo "${{ steps.get_tag.outputs.version }}" | sed 's/^v//')
+          VERSION=$(echo "${{ github.event.inputs.version }}" | sed 's/^v//')
           NEXT_VERSION=$((VERSION + 1))
           NEXT_TAG="v$NEXT_VERSION"
           echo "Next Tag: $NEXT_TAG"
-          echo $NEXT_TAG > next_tag.txt
-          echo "::set-output name=version::$NEXT_TAG"
+          echo "version=$NEXT_TAG" >> $GITHUB_OUTPUT
 
       - name: Convert to PDF
         uses: xu-cheng/latex-action@3.2.0
         with:
           root_file: Ayush_Jaipuriyar_resume.tex
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v2.0.8
-        with:
-          files: Ayush_Jaipuriyar_resume.pdf
+      - name: Tag the release
+        run: |
+          new_tag=${{ steps.increment_version.outputs.version }}
+          git tag $new_tag
+          git push origin $new_tag
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        id: release
+        with:
+          tag_name: ${{ steps.increment_version.outputs.version }}
+          release_name: Release ${{ steps.increment_version.outputs.version }}
+          draft: false
+          prerelease: false
+          files: Ayush_Jaipuriyar_resume.pdf

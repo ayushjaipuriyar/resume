@@ -1,6 +1,9 @@
 name: Publish Resume
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 defaults:
   run:
@@ -11,44 +14,38 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@latest
 
-      - name: Add version
+      - name: Get Latest Tag
+        id: get_tag
         run: |
-          fileName="Ayush_Jaipuriyar_resume.tex"
-          echo "Substituting version number ${GITHUB_SHA::7} in file $fileName"
-          sed -i -e "s/version/${GITHUB_SHA::7}/" $fileName
-          echo ${GITHUB_SHA::7} > version.txt
+          # Fetch all tags
+          git fetch --tags
+          # Get the latest tag
+          LATEST_TAG=$(git describe --tags --abbrev=0 || echo "0")
+          echo "Latest Tag: $LATEST_TAG"
+          echo "::set-output name=version::$LATEST_TAG"
+
+      - name: Increment Version
+        id: increment_version
+        run: |
+          # Extract version number from tag (assuming format like v1, v2, etc.)
+          VERSION=$(echo "${{ steps.get_tag.outputs.version }}" | sed 's/^v//')
+          NEXT_VERSION=$((VERSION + 1))
+          NEXT_TAG="v$NEXT_VERSION"
+          echo "Next Tag: $NEXT_TAG"
+          echo $NEXT_TAG > next_tag.txt
+          echo "::set-output name=version::$NEXT_TAG"
 
       - name: Convert to PDF
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@3.2.0
         with:
           root_file: Ayush_Jaipuriyar_resume.tex
 
-      - name: Bump version
-        id: bump_version
-        uses: mathieudutour/github-tag-action@v6.1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v2.0.8
+        with:
+          files: Ayush_Jaipuriyar_resume.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.bump_version.outputs.new_tag }}
-          release_name: Resume Version ${{ steps.bump_version.outputs.new_version }}
-          draft: false
-          prerelease: false
-
-      - name: Upload release asset
-        id: upload_release_asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: Ayush_Jaipuriyar_resume.pdf
-          asset_name: Ayush_Jaipuriyar_resume.pdf
-          asset_content_type: application/pdf
+        id: release

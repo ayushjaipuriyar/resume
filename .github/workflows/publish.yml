@@ -55,4 +55,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          tag_name: ${{ steps.increment_version.outputs.version }}
           files: Ayush_Jaipuriyar_resume.pdf

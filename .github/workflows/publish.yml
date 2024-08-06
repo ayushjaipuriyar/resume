@@ -33,6 +33,7 @@ jobs:
         run: |
           # Extract version number from tag (assuming format like v1, v2, etc.)
           VERSION=$(echo "${{ github.event.inputs.version }}" | sed 's/^v//')
+          echo "Current Version: $VERSION"
           NEXT_VERSION=$((VERSION + 1))
           NEXT_TAG="v$NEXT_VERSION"
           echo "Next Tag: $NEXT_TAG"

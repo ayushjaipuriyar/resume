@@ -26,13 +26,13 @@ jobs:
           # Get the latest tag
           LATEST_TAG=$(git describe --tags --abbrev=0 || echo "v0")
           echo "Latest Tag: $LATEST_TAG"
-          echo "version=$LATEST_TAG" >> $GITHUB_STATE
+          echo "current_version=$LATEST_TAG" >> $GITHUB_OUTPUT
 
       - name: Increment Version
         id: increment_version
         run: |
           # Extract version number from tag (assuming format like v1, v2, etc.)
-          VERSION=$(echo "${{ github.event.inputs.version }}" | sed 's/^v//')
+          VERSION=$(echo "${{ steps.get_tag.outputs.current_version }}" | sed 's/^v//')
           echo "Current Version: $VERSION"
           NEXT_VERSION=$((VERSION + 1))
           NEXT_TAG="v$NEXT_VERSION"

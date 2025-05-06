@@ -1,0 +1,188 @@
+%-------------------------
+% Rover Resume - Star Template
+% Link: https://github.com/subidit/rover-resume
+%
+% CUSTOM COMMANDS \aux{} and \rside{} for part formatting
+% eg. \subsection{Company Name \aux{Designation} \rside{Duration}}
+% Double lined titles with \subsection{} and \subsubsection{}
+% \linkicon gives external link icon
+%-------------------------
+
+\documentclass[10pt]{article}
+
+\usepackage[sfdefault,semibold,lf]{FiraSans}
+\usepackage[a4paper,margin=0.75in]{geometry} % reduced bottom margin from 1in to 0.5in
+
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{141E61}
+
+\newcommand{\linkicon}{
+  \color{gray}{\footnotesize\raisebox{1pt}{\faIcon{external-link-alt}}}
+}
+
+\setcounter{secnumdepth}{0}
+\pdfgentounicode=1
+
+%====== LIST FORMATTING ======
+\usepackage{enumitem}
+\setlist[itemize]{nosep, left=0pt .. 1.5em}
+\setlist[enumerate]{left=0pt..1.5em}
+\setlist[description]{itemsep=0pt}
+
+%====== TITLE FORMATTING ======
+\usepackage{xhfill}
+\usepackage{soul}
+\newcommand{\midrule}[1]{
+  \leavevmode
+  \xrfill[.5ex]{1pt}[accent]~\so{#1}~\xrfill[.5ex]{1pt}[accent]
+}
+
+\usepackage{titlesec}
+\titlespacing{\section}{0pt}{*4}{*1}
+\titlespacing{\subsection}{0pt}{*3}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+\titleformat{\section}{\large\bfseries\uppercase}{}{}{\midrule}
+\titleformat*{\subsection}{\large\bfseries\scshape}
+
+%====== CUSTOM COMMANDS ======
+\newcommand{\aux}[1]{
+  $|$ \space {\normalfont\itshape #1}%
+}
+
+\newcommand{\rside}[1]{
+  \hfill {\normalfont\color{accent} #1}%
+}
+
+%====== FOOTER ======
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+% Replace 'Star Rover' with your name in next line
+% \fancyfoot[C]{\small\color{gray} Star Rover -- Page \thepage\ of \pageref*{LastPage}}
+
+% \pagestyle{empty}
+% uncomment previous line to hide page numbering
+
+%====== PACKAGES ======
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage[bookmarks=false,hidelinks]{hyperref}
+
+%====== FINISH PREAMBLE ======
+
+%====== DOCUMENT STARTS HERE ======
+
+\begin{document}
+
+%====== BANNER ======
+
+\begin{center}
+  {
+    \fontsize{36}{12}
+    \fontseries{heavy}\selectfont
+    \color{accent}
+    Ayush Jaipuriyar % YOUR NAME HERE
+  } \\ \medskip
+
+  % {\color{gray}{\faHome}} 1 infinite loop, CA \quad
+
+  \href{tel:+44 7721 170466}{{\color{gray}{\faPhone}} +44 7721 170466} \quad
+  \href{mailto:ayushjaipuriyar21@gmail.com}{{\color{gray}{\faEnvelope}} ayushjaipuriyar21@gmail.com} \quad
+  \href{https://github.com/ayushjaipuriyar}{{\color{gray}{\faGithub}} ayushjaipuriyar} \quad
+  \href{https://www.linkedin.com/in/ayushjaipuriyar}{{\color{gray}{\faLinkedin}} Linkedin} \quad
+  %   \href{https://github.com/}{{\color{gray}{\faLink}} starportfolio.com}
+\end{center}
+
+%====== BANNER END ======
+
+\section{Education}
+%==========
+\subsection{University of Glasgow \aux{MSc in Computer Science} \rside{Sep 2024 -- Sep 2025}}
+\subsection{Manipal University Jaipur \aux{BTech in Information Technology} \rside{Jun 2020 -- Jun 2024}}
+% \begin{itemize}
+% \item CGPA: 8.8/10
+% \end{itemize}
+
+\section{Experience}
+%===================
+\subsection{Healthtrip \rside{Noida, India}}
+\subsubsection{Software Developer Intern \rside{Jan 2024 -- Aug 2024}}
+\begin{itemize}
+    % \item Spearheaded the migration of 50\% of a critical project from PHP to NestJS, resulting in a significant enhancement in application scalability and performance by 75\%, improving user satisfaction metrics
+    % \item Implemented Redis caching and integrated Elasticsearch, achieving a 90\% reduction in data retrieval times and a 60\% increase in search
+    % performance
+    % \item Engineered a high-performance API endpoint utilizing Node.js and Express, facilitating efficient data communication between microservices and improving overall application interoperability by 40\%, resulting in enhanced user experiences
+    % \item Designed a custom multilingual solution using database-driven content, supporting 9 languages and achieving a 75\% increase in user engagement
+    % \item Created an advanced role-based access control module in the CRM, strengthening user permissions management and enhancing overall data protection protocols for sensitive client information
+    % \item Optimized caching, security, and load times by managing Cloudflare, EC2, CloudFront, and S3, resulting in a 50\% reduction in page load
+    % times and a 30\% improvement in overall performance
+  \item Led migration of a critical project from PHP to NestJS, boosting scalability and performance by 75\% and improving user satisfaction.
+
+  \item Integrated Redis and Elasticsearch to reduce data retrieval time by 90\% and enhance search performance by 60\%.
+
+  \item Developed high-performance APIs with Node.js and Express, improving microservice communication and interoperability by 40\%.
+
+  \item Built a multilingual, database-driven content system supporting 9 languages, increasing user engagement by 75\%.
+
+  \item Enhanced security and performance by implementing role-based access control and optimizing Cloudflare, EC2, CloudFront, and S3 setups—cutting page load times by 50\%.
+\end{itemize}
+
+\subsection{Software Developer Intern \rside{New Delhi, India}}
+\subsubsection{AST Consulting \rside{Jun 2023 - Aug 2023}}
+\begin{itemize}
+  \item Integrated AWS services, reducing image loading time by 50\% and data transfer latency by 40\%
+  \item Crafted innovative precision-based scheduling algorithms coupled with an interactive Telegram bot; this initiative led to a remarkable increase of user retainment metrics by 30\% and improved new user adoption rate by 25\%
+  \item Introduced a comprehensive code review process on GitHub, resulting in a 30\% decrease in post-release defects and 20\% faster feature
+    delivery
+  \item Set up CI/CD pipelines on AWS, reducing deployment time by 40\% and achieving 95\%+ uptime
+\end{itemize}
+
+\section{Skills}
+%===============
+\begin{description}
+  \item[Technical] React, React Redux, NestJs, Nodejs, Express, AWS, Elastisearch, Pandas, Numpy, Matplotlib
+  \item[Languages] C++, C, Javascript, Node Js, React, Typescript, Html, Css, Python, Bash
+  \item[Databases] MongoDB, PostgreSQL
+  \item[Tools] Git,Docker,AWS, Google Cloud Platform, GitHub Actions ,Jenkins, Postman, Redis, Elasticsearch, Cloudflare, CloudFront, EC2, S3, CloudFront, Chargebee, Stripe, Google Analytics, Microsoft Clarity
+\end{description}
+
+\section{Projects}
+%=================
+\subsection{Vantage-14are05 \aux{\href{https://github.com/ayushjaipuriyar/vantage-14are05}{Link \linkicon}}}
+\begin{itemize}
+  \item Published a utility tool enabling ACPI calls for performance mode adjustments and battery management on Lenovo Ideapad Slim 5 AMD laptops; increased user satisfaction scores by enhancing power management efficiency.
+\end{itemize}
+
+\subsection{Movie Recommendation System \aux{\href{https://github.com/ayushjaipuriyar/movie-recommendation-engine}{Link \linkicon}}}
+\begin{itemize}
+  \item Engineered a movie suggestion engine leveraging K-means clustering and collaborative filtering techniques
+  \item Designed a visually appealing user interface using ReactJS
+  \item Constructed effective communication channels through well-structured RESTful APIs built with Flask for an innovative film suggestion engine
+\end{itemize}
+
+% \section{Certifications}
+% %=======================
+% \begin{enumerate}[label=\null, left=0pt..0pt, itemsep=0pt]
+%   \item Some programming bootcamp, Location. \rside{2023}
+%   \item Forbes Top 15 Procrastinators under 15. \rside{2022}
+%   \item Perticipation award for attending workshop. \rside{2021}
+% \end{enumerate}
+
+\section{Publications}
+%=====================
+\begin{enumerate}
+  \item A. Yadav, A. Jaipuriyar, S. Roy, and U. Rawat, “A lossless image encryption technique using chaotic map and DNA encoding,” \textit{Multimedia Tools and Applications}, Apr. 2025. doi: \href{https://doi.org/10.1007/s11042-025-20851-w}{10.1007/s11042-025-20851-w}
+\end{enumerate}
+
+% \section{Awards}
+% %===============
+% \begin{description}
+%   \item [2023] Some programming bootcamp, Location
+%   \item [2022] Forbes Top 15 Procrastinators under 15
+%   \item [2021] Conducted workshop on family planning by abstainance in SomePlace
+% \end{description}
+
+\end{document}

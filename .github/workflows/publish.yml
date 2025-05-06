@@ -42,7 +42,7 @@ jobs:
       - name: Convert to PDF
         uses: xu-cheng/latex-action@3.2.0
         with:
-          root_file: Ayush_Jaipuriyar_resume.tex
+          root_file: Ayush_Jaipuriyar.tex
 
       - name: Tag the release
         run: |

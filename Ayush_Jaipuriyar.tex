@@ -11,7 +11,7 @@
 \documentclass[10pt]{article}
 
 \usepackage[sfdefault,semibold,lf]{FiraSans}
-\usepackage[a4paper,margin=0.75in]{geometry} % reduced bottom margin from 1in to 0.5in
+\usepackage[a4paper,margin=0.6in]{geometry} % reduced bottom margin from 1in to 0.5in
 
 \usepackage{xcolor}
 \definecolor{accent}{HTML}{141E61}
@@ -38,7 +38,7 @@
 }
 
 \usepackage{titlesec}
-\titlespacing{\section}{0pt}{*4}{*1}
+\titlespacing{\section}{0pt}{*2}{*1}
 \titlespacing{\subsection}{0pt}{*3}{*0}
 \titlespacing{\subsubsection}{0pt}{*0}{*0}
 \titleformat{\section}{\large\bfseries\uppercase}{}{}{\midrule}
@@ -46,7 +46,7 @@
 
 %====== CUSTOM COMMANDS ======
 \newcommand{\aux}[1]{
-  $|$ \space {\normalfont\itshape #1}%
+  $|$ \space {\normalsize\normalfont\itshape #1}%
 }
 
 \newcommand{\rside}[1]{
@@ -67,8 +67,8 @@
 % uncomment previous line to hide page numbering
 
 %====== PACKAGES ======
-\usepackage{fontawesome5}
-\usepackage{multicol}
+% \usepackage{fontawesome5}
+% \usepackage{multicol}
 \usepackage[bookmarks=false,hidelinks]{hyperref}
 
 %====== FINISH PREAMBLE ======
@@ -81,18 +81,18 @@
 
 \begin{center}
   {
-    \fontsize{36}{12}
+    \fontsize{32}{12}
     \fontseries{heavy}\selectfont
     \color{accent}
     Ayush Jaipuriyar % YOUR NAME HERE
   } \\ \medskip
 
-  % {\color{gray}{\faHome}} 1 infinite loop, CA \quad
+  % {\color{gray}{\faHome}} 1 infinite loop, CA \hspace{0.1em}
 
-  \href{tel:+44 7721 170466}{{\color{gray}{\faPhone}} +44 7721 170466} \quad
-  \href{mailto:ayushjaipuriyar21@gmail.com}{{\color{gray}{\faEnvelope}} ayushjaipuriyar21@gmail.com} \quad
-  \href{https://github.com/ayushjaipuriyar}{{\color{gray}{\faGithub}} ayushjaipuriyar} \quad
-  \href{https://www.linkedin.com/in/ayushjaipuriyar}{{\color{gray}{\faLinkedin}} Linkedin} \quad
+  \href{tel:+447721170466}{Phone: +44 7721170466} \hspace{0.1em}
+  \href{mailto:ayushjaipuriyar21@gmail.com}{Email: ayushjaipuriyar21@gmail.com} \hspace{0.1em}
+  \href{https://github.com/ayushjaipuriyar}{GitHub: ayushjaipuriyar} \hspace{0.1em}
+  \href{https://www.linkedin.com/in/ayushjaipuriyar}{LinkedIn: ayushjaipuriyar}
   %   \href{https://github.com/}{{\color{gray}{\faLink}} starportfolio.com}
 \end{center}
 
@@ -105,63 +105,63 @@
 % \begin{itemize}
 % \item CGPA: 8.8/10
 % \end{itemize}
-
 \section{Experience}
 %===================
 \subsection{Healthtrip \rside{Noida, India}}
 \subsubsection{Software Developer Intern \rside{Jan 2024 -- Aug 2024}}
 \begin{itemize}
-    % \item Spearheaded the migration of 50\% of a critical project from PHP to NestJS, resulting in a significant enhancement in application scalability and performance by 75\%, improving user satisfaction metrics
-    % \item Implemented Redis caching and integrated Elasticsearch, achieving a 90\% reduction in data retrieval times and a 60\% increase in search
-    % performance
-    % \item Engineered a high-performance API endpoint utilizing Node.js and Express, facilitating efficient data communication between microservices and improving overall application interoperability by 40\%, resulting in enhanced user experiences
-    % \item Designed a custom multilingual solution using database-driven content, supporting 9 languages and achieving a 75\% increase in user engagement
-    % \item Created an advanced role-based access control module in the CRM, strengthening user permissions management and enhancing overall data protection protocols for sensitive client information
-    % \item Optimized caching, security, and load times by managing Cloudflare, EC2, CloudFront, and S3, resulting in a 50\% reduction in page load
-    % times and a 30\% improvement in overall performance
-  \item Led migration of a critical project from PHP to NestJS, boosting scalability and performance by 75\% and improving user satisfaction.
-
-  \item Integrated Redis and Elasticsearch to reduce data retrieval time by 90\% and enhance search performance by 60\%.
-
-  \item Developed high-performance APIs with Node.js and Express, improving microservice communication and interoperability by 40\%.
-
-  \item Built a multilingual, database-driven content system supporting 9 languages, increasing user engagement by 75\%.
-
-  \item Enhanced security and performance by implementing role-based access control and optimizing Cloudflare, EC2, CloudFront, and S3 setups—cutting page load times by 50\%.
+    \item Spearheaded the migration of 50\% of a critical project from PHP to NestJS, that enhanced scalability and performance by 75\%.
+    \item Implemented Redis caching and integrated Elasticsearch, achieving a 90\% reduction in data retrieval times and a 60\% increase in search performance.
+    \item Engineered high-performance RESTful APIs using Node.js and Express, enabling efficient communication between microservices and enhancing system interoperability and scalability by 40\%.
+    \item Conducted unit and integration testing using Postman and Jest to ensure high code quality and performance.
+    \item Performed regular software maintenance and monitoring to ensure reliability and availability.
+    \item Designed a custom multilingual solution supporting 9 languages, boosting user engagement by 75\%.
+    \item Integrated role-based access control, incorporating security best practices for user permissions.
+    \item Managed cloud computing infrastructure via Cloudflare, EC2, CloudFront, and S3, optimizing caching, security, and load times cutting page load by 50\%.
 \end{itemize}
 
-\subsection{Software Developer Intern \rside{New Delhi, India}}
-\subsubsection{AST Consulting \rside{Jun 2023 - Aug 2023}}
+\subsection{AST Consulting \rside{New Delhi, India}}
+\subsubsection{Software Developer Intern \rside{Jun 2023 - Aug 2023}}
 \begin{itemize}
-  \item Integrated AWS services, reducing image loading time by 50\% and data transfer latency by 40\%
-  \item Crafted innovative precision-based scheduling algorithms coupled with an interactive Telegram bot; this initiative led to a remarkable increase of user retainment metrics by 30\% and improved new user adoption rate by 25\%
-  \item Introduced a comprehensive code review process on GitHub, resulting in a 30\% decrease in post-release defects and 20\% faster feature
-    delivery
-  \item Set up CI/CD pipelines on AWS, reducing deployment time by 40\% and achieving 95\%+ uptime
+  \item Developed scalable systems and engaged in software development using JavaScript, AWS, and Docker.
+  \item Integrated AWS services to build a CDN, reducing image loading time by 50\% and latency by 40\%.
+  \item Set up CI/CD pipelines and implemented continuous integration using GitHub Actions, improving deployment speed by 40\% and ensuring 95\%+ uptime.
+  \item Delivered technical support and resolved cross-platform deployment issues during integration and production.
+  \item Created technical documentation for project features and deployment instructions to aid onboarding.
+  \item Collaborated closely with team members, emphasizing teamwork and problem-solving in high-paced delivery.
+  \item Introduced code review and version control workflows via GitHub, reducing bugs by 30\% post-release.
+  \item Conducted requirements analysis with clients to scope project features and timelines.
 \end{itemize}
 
 \section{Skills}
-%===============
 \begin{description}
-  \item[Technical] React, React Redux, NestJs, Nodejs, Express, AWS, Elastisearch, Pandas, Numpy, Matplotlib
-  \item[Languages] C++, C, Javascript, Node Js, React, Typescript, Html, Css, Python, Bash
-  \item[Databases] MongoDB, PostgreSQL
-  \item[Tools] Git,Docker,AWS, Google Cloud Platform, GitHub Actions ,Jenkins, Postman, Redis, Elasticsearch, Cloudflare, CloudFront, EC2, S3, CloudFront, Chargebee, Stripe, Google Analytics, Microsoft Clarity
+  \item[Programming Languages] C/C++, Java, Python, JavaScript, TypeScript, HTML/CSS, Bash, PHP, SQL
+  \item[Frameworks \& Libraries] Node.js, NestJS, Express.js, React, Redux, Pandas, NumPy, Matplotlib, Flask
+  \item[Databases \& Caching] MongoDB, PostgreSQL, MySQL, Redis, Elasticsearch
+  \item[Cloud/DevOps] AWS (EC2, S3, CloudFront), GCP, Docker, Git, CI/CD, GitHub Actions, Jenkins, Kubernetes, Cloudflare
+  \item[Developer Tools] Postman, Stripe, Chargebee, Google Analytics, Microsoft Clarity, Jest, Git
+  \item[Methodologies] Agile/Scrum, Microservices Architecture, RESTful APIs, SDLC, OOP, DevOps Practices, Continuous Integration
 \end{description}
 
 \section{Projects}
-%=================
-\subsection{Vantage-14are05 \aux{\href{https://github.com/ayushjaipuriyar/vantage-14are05}{Link \linkicon}}}
+\subsection{Vantage-14are05 \rside{\href{https://github.com/ayushjaipuriyar/vantage-14are05}{GitHub Link}}}
 \begin{itemize}
-  \item Published a utility tool enabling ACPI calls for performance mode adjustments and battery management on Lenovo Ideapad Slim 5 AMD laptops; increased user satisfaction scores by enhancing power management efficiency.
+  \item Published a utility tool enabling ACPI calls for performance and battery tuning on Lenovo Slim 5 AMD laptops.
+  \item Focused on cross-platform development compatibility and user experience design for seamless utility use.
 \end{itemize}
 
-\subsection{Movie Recommendation System \aux{\href{https://github.com/ayushjaipuriyar/movie-recommendation-engine}{Link \linkicon}}}
+% \subsection{Movie Recommendation System \rside{\href{https://github.com/ayushjaipuriyar/movie-recommendation-engine}{GitHub Link}}}
+% \begin{itemize}
+%   \item Engineered a movie recommendation engine using K-means clustering and collaborative filtering.
+%   \item Designed a responsive, mobile-friendly user interface with ReactJS emphasizing UI/UX best practices.
+%   \item Built RESTful APIs with Flask and performed backend software testing to ensure system reliability.
+\subsection{LeetCode MCP Server \rside{\href{https://github.com/ayushjaipuriyar/leetcode-mcpserver}{GitHub Link}\href{https://www.npmjs.com/package/leetcode-mcpserver}{NPM}}}
 \begin{itemize}
-  \item Engineered a movie suggestion engine leveraging K-means clustering and collaborative filtering techniques
-  \item Designed a visually appealing user interface using ReactJS
-  \item Constructed effective communication channels through well-structured RESTful APIs built with Flask for an innovative film suggestion engine
+  \item Developed an MCP server to automate access to LeetCode problems, solutions, and public data across leetcode.com and leetcode.cn.
+  \item Implemented optional user authentication to enable personalized features including code submission and retrieval.
+  \item Designed a modular, scalable architecture supporting problem parsing, solution fetching, and programmatic code execution.
 \end{itemize}
+
 
 % \section{Certifications}
 % %=======================
@@ -174,7 +174,7 @@
 \section{Publications}
 %=====================
 \begin{enumerate}
-  \item A. Yadav, A. Jaipuriyar, S. Roy, and U. Rawat, “A lossless image encryption technique using chaotic map and DNA encoding,” \textit{Multimedia Tools and Applications}, Apr. 2025. doi: \href{https://doi.org/10.1007/s11042-025-20851-w}{10.1007/s11042-025-20851-w}
+  \item \textbf{A. Jaipuriyar}, A. Yadav, S. Roy, and U. Rawat, “A lossless image encryption technique using chaotic map and DNA encoding,” \textit{Multimedia Tools and Applications}, Apr. 2025. doi: \href{https://doi.org/10.1007/s11042-025-20851-w}{10.1007/s11042-025-20851-w}
 \end{enumerate}
 
 % \section{Awards}

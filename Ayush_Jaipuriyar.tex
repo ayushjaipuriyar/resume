@@ -11,14 +11,10 @@
 \documentclass[10pt]{article}
 
 \usepackage[sfdefault,semibold,lf]{FiraSans}
-\usepackage[a4paper,margin=0.6in]{geometry} % reduced bottom margin from 1in to 0.5in
+\usepackage[a4paper,margin=0.4in]{geometry} % reduced bottom margin from 1in to 0.5in
 
 \usepackage{xcolor}
 \definecolor{accent}{HTML}{141E61}
-
-\newcommand{\linkicon}{
-  \color{gray}{\footnotesize\raisebox{1pt}{\faIcon{external-link-alt}}}
-}
 
 \setcounter{secnumdepth}{0}
 \pdfgentounicode=1
@@ -46,24 +42,27 @@
 
 %====== CUSTOM COMMANDS ======
 \newcommand{\aux}[1]{
-  $|$ \space {\normalsize\normalfont\itshape #1}%
+  $|$ \space {\small\normalfont\itshape #1}%
 }
 
 \newcommand{\rside}[1]{
-  \hfill {\normalfont\color{accent} #1}%
+  \hfill {\small\color{accent} #1}%
 }
 
+\setlength{\headheight}{-0.5in}
+\setlength{\topmargin}{-0.5in}
+
 %====== FOOTER ======
-\usepackage{lastpage}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
+% \usepackage{lastpage}
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \renewcommand{\headrulewidth}{0pt}
 
 % Replace 'Star Rover' with your name in next line
 % \fancyfoot[C]{\small\color{gray} Star Rover -- Page \thepage\ of \pageref*{LastPage}}
 
-% \pagestyle{empty}
+\pagestyle{empty}
 % uncomment previous line to hide page numbering
 
 %====== PACKAGES ======
@@ -81,7 +80,7 @@
 
 \begin{center}
   {
-    \fontsize{32}{12}
+    \fontsize{30}{12}
     \fontseries{heavy}\selectfont
     \color{accent}
     Ayush Jaipuriyar % YOUR NAME HERE
@@ -112,7 +111,7 @@
 \begin{itemize}
     \item Spearheaded the migration of 50\% of a critical project from PHP to NestJS, that enhanced scalability and performance by 75\%.
     \item Implemented Redis caching and integrated Elasticsearch, achieving a 90\% reduction in data retrieval times and a 60\% increase in search performance.
-    \item Engineered high-performance RESTful APIs using Node.js and Express, enabling efficient communication between microservices and enhancing system interoperability and scalability by 40\%.
+    \item Engineered high-performance RESTful APIs using Node.js, Express, and WebSockets enabling efficient communication between microservices and enhancing system interoperability and scalability by 40\%.
     \item Conducted unit and integration testing using Postman and Jest to ensure high code quality and performance.
     \item Performed regular software maintenance and monitoring to ensure reliability and availability.
     \item Designed a custom multilingual solution supporting 9 languages, boosting user engagement by 75\%.
@@ -123,11 +122,9 @@
 \subsection{AST Consulting \rside{New Delhi, India}}
 \subsubsection{Software Developer Intern \rside{Jun 2023 - Aug 2023}}
 \begin{itemize}
-  \item Developed scalable systems and engaged in software development using JavaScript, AWS, and Docker.
   \item Integrated AWS services to build a CDN, reducing image loading time by 50\% and latency by 40\%.
   \item Set up CI/CD pipelines and implemented continuous integration using GitHub Actions, improving deployment speed by 40\% and ensuring 95\%+ uptime.
-  \item Delivered technical support and resolved cross-platform deployment issues during integration and production.
-  \item Created technical documentation for project features and deployment instructions to aid onboarding.
+  \item Created documentation and deployment pipelines using Docker and GitHub Actions, enhancing team collaboration and deployment efficiency.
   \item Collaborated closely with team members, emphasizing teamwork and problem-solving in high-paced delivery.
   \item Introduced code review and version control workflows via GitHub, reducing bugs by 30\% post-release.
   \item Conducted requirements analysis with clients to scope project features and timelines.
@@ -135,47 +132,53 @@
 
 \section{Skills}
 \begin{description}
-  \item[Programming Languages] C/C++, Java, Python, JavaScript, TypeScript, HTML/CSS, Bash, PHP, SQL
-  \item[Frameworks \& Libraries] Node.js, NestJS, Express.js, React, Redux, Pandas, NumPy, Matplotlib, Flask
-  \item[Databases \& Caching] MongoDB, PostgreSQL, MySQL, Redis, Elasticsearch
+  \item[Programming Languages] C/C++, Java, Python, JavaScript, TypeScript, HTML/CSS, Bash, PHP, SQL, YAML, JSON
+  \item[Frameworks \& Libraries] Node.js, Next.js, NestJS, Express.js, React, Redux, Pandas, NumPy, Matplotlib, Flask, FastAPI, Bootstrap, Django, SQLAlchemy, Mongoose, Pytorch, TensorFlow, Scikit-learn, Pillow, BeautifulSoup 
+  \item[Testing \& Debugging] Postman, Jest
+  \item[Databases \& Caching] MongoDB, PostgreSQL, MySQL, Redis, Elasticsearch, Firebase
   \item[Cloud/DevOps] AWS (EC2, S3, CloudFront), GCP, Docker, Git, CI/CD, GitHub Actions, Jenkins, Kubernetes, Cloudflare
-  \item[Developer Tools] Postman, Stripe, Chargebee, Google Analytics, Microsoft Clarity, Jest, Git
-  \item[Methodologies] Agile/Scrum, Microservices Architecture, RESTful APIs, SDLC, OOP, DevOps Practices, Continuous Integration
+  \item[Developer Tools] Postman, Stripe, Chargebee, Google Analytics, Microsoft Clarity, Jest, Git, Grafana, Kibana, Jira, Trello,Slack, npm, Yarn, Webpack, Pnpm
+  \item[Methodologies] Agile/Scrum, Microservices Architecture, RESTful APIs, GraphQL,serverless ,SDLC, OOP, DevOps Practices, Continuous Integration
 \end{description}
 
 \section{Projects}
-\subsection{Vantage-14are05 \rside{\href{https://github.com/ayushjaipuriyar/vantage-14are05}{GitHub Link}}}
+\subsection{LeetCode MCP Server \rside{\href{https://github.com/ayushjaipuriyar/leetcode-mcpserver}{GitHub}\hspace{0.1cm}\href{https://www.npmjs.com/package/leetcode-mcpserver}{NPM}}}
 \begin{itemize}
-  \item Published a utility tool enabling ACPI calls for performance and battery tuning on Lenovo Slim 5 AMD laptops.
-  \item Focused on cross-platform development compatibility and user experience design for seamless utility use.
-\end{itemize}
-
-% \subsection{Movie Recommendation System \rside{\href{https://github.com/ayushjaipuriyar/movie-recommendation-engine}{GitHub Link}}}
-% \begin{itemize}
-%   \item Engineered a movie recommendation engine using K-means clustering and collaborative filtering.
-%   \item Designed a responsive, mobile-friendly user interface with ReactJS emphasizing UI/UX best practices.
-%   \item Built RESTful APIs with Flask and performed backend software testing to ensure system reliability.
-\subsection{LeetCode MCP Server \rside{\href{https://github.com/ayushjaipuriyar/leetcode-mcpserver}{GitHub Link}\href{https://www.npmjs.com/package/leetcode-mcpserver}{NPM}}}
-\begin{itemize}
-  \item Developed an MCP server to automate access to LeetCode problems, solutions, and public data across leetcode.com and leetcode.cn.
+  \item Developed an MCP server to  automate access to LeetCode problems, solutions.
   \item Implemented optional user authentication to enable personalized features including code submission and retrieval.
   \item Designed a modular, scalable architecture supporting problem parsing, solution fetching, and programmatic code execution.
 \end{itemize}
 
+\subsection{Vantage-14are05 \rside{\href{https://github.com/ayushjaipuriyar/vantage-14are05}{GitHub}}}
+\begin{itemize}
+  \item Published a utility tool for linux enabling ACPI calls for performance and battery tuning on Lenovo Slim 5 AMD laptops.
+  \item Focused on cross-platform development compatibility and user experience design for seamless utility use.
+\end{itemize}
 
-% \section{Certifications}
-% %=======================
-% \begin{enumerate}[label=\null, left=0pt..0pt, itemsep=0pt]
-%   \item Some programming bootcamp, Location. \rside{2023}
-%   \item Forbes Top 15 Procrastinators under 15. \rside{2022}
-%   \item Perticipation award for attending workshop. \rside{2021}
-% \end{enumerate}
+% \subsection{Movie Recommendation System \rside{\href{https://github.com/ayushjaipuriyar/movie-recommendation-engine}{GitHub}}}
+% \begin{itemize}
+%   \item Engineered a movie recommendation engine using K-means clustering and collaborative filtering.
+%   \item Designed a responsive, mobile-friendly user interface with ReactJS emphasizing UI/UX best practices.
+%   \item Built RESTful APIs with Flask and performed backend software testing to ensure system reliability.
 
 \section{Publications}
 %=====================
 \begin{enumerate}
-  \item \textbf{A. Jaipuriyar}, A. Yadav, S. Roy, and U. Rawat, “A lossless image encryption technique using chaotic map and DNA encoding,” \textit{Multimedia Tools and Applications}, Apr. 2025. doi: \href{https://doi.org/10.1007/s11042-025-20851-w}{10.1007/s11042-025-20851-w}
+  \item [2025] \textbf{A. Jaipuriyar}, A. Yadav, S. Roy, and U. Rawat, “A lossless image encryption technique using chaotic map and DNA encoding,” \textit{Multimedia Tools and Applications}, Apr. 2025. doi: \href{https://doi.org/10.1007/s11042-025-20851-w}{10.1007/s11042-025-20851-w}
 \end{enumerate}
+
+\section{Certifications}
+%=======================
+\begin{enumerate}[label=\null, left=0pt..0pt, itemsep=0pt]
+  \item \textbf{Node.js, Express, MongoDB \& More: The Complete Bootcamp 2022\rside{Udemy}}
+  \item \textbf{Python Masterclass \rside{Udemy}}
+  \item \textbf{AWS Machine Learning Foundations\rside{Udacity}}
+  \item \textbf{React - The Complete Guide \rside{Udemy}}
+  \item \textbf{DFo Database Foundations Learner \rside{Oracle}}
+  \item \textbf{Red Hat System Administration I (RH124 )/ II (RH134) \rside{Red Hat}}
+  \item \textbf{C and C++ Specialization \rside{Coursera}}
+\end{enumerate}
+
 
 % \section{Awards}
 % %===============

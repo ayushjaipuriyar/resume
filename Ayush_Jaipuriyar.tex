@@ -8,10 +8,11 @@
 % \linkicon gives external link icon
 %-------------------------
 
-\documentclass[10pt]{article}
+\documentclass[letterpaper,11pt]{article}
 
 \usepackage[sfdefault,semibold,lf]{FiraSans}
-\usepackage[a4paper,margin=0.4in]{geometry} % reduced bottom margin from 1in to 0.5in
+% \usepackage[a4paper,margin=0.4in]{geometry} % reduced bottom margin from 1in to 0.5in
+\usepackage[letterpaper,margin=0.5in]{geometry} % Document margins
 
 \usepackage{xcolor}
 \definecolor{accent}{HTML}{141E61}
@@ -49,8 +50,8 @@
   \hfill {\small\color{accent} #1}%
 }
 
-\setlength{\headheight}{-0.5in}
-\setlength{\topmargin}{-0.5in}
+% \setlength{\headheight}{-0.5in}
+% \setlength{\topmargin}{-0.5in}
 
 %====== FOOTER ======
 % \usepackage{lastpage}
@@ -69,107 +70,124 @@
 \usepackage{fontawesome5}
 % \usepackage{multicol}
 \usepackage[bookmarks=false,hidelinks]{hyperref}
+% Typography & justification enhancements
+\usepackage{microtype}
+\usepackage{ragged2e}
+\Urlmuskip=0mu plus 1mu
+\tolerance=1000
+\pretolerance=500
+\emergencystretch=2em
 
 %====== FINISH PREAMBLE ======
 
 %====== DOCUMENT STARTS HERE ======
 
 \begin{document}
+\justifying
 
 %====== BANNER ======
 
 \begin{center}
   {
-    \fontsize{30}{12}
+    \fontsize{26}{12}
     \fontseries{heavy}\selectfont
     \color{accent}
-    Ayush Jaipuriyar % YOUR NAME HERE
+    Ayush Jaipuriyar
   } \\ \medskip
 
   % {\color{gray}{\faHome}} 1 infinite loop, CA \hspace{0.1em}
 
-  \href{tel:+447721170466}{\faPhone: +44 7721170466} \hspace{0.1em}
-  \href{mailto:ayushjaipuriyar21@gmail.com}{\faEnvelope: ayushjaipuriyar21@gmail.com} \hspace{0.1em}
-  {\faGlobe: Glasgow, UK} \hspace{0.1em}
-  \href{https://github.com/ayushjaipuriyar}{\faGithub: ayushjaipuriyar} \hspace{0.1em}
-  \href{https://www.linkedin.com/in/ayushjaipuriyar}{\faLinkedin: ayushjaipuriyar}
+  {{\color{gray}\faGlobe}: Glasgow, UK}
+  \href{tel:+4407721170466}{\faPhone\: +4407721170466} \hspace{0.1em}
+  \href{mailto:ayushjaipuriyar21@gmail.com}{\faEnvelope\: ayushjaipuriyar21@gmail.com} \hspace{0.1em}
+  \href{https://github.com/ayushjaipuriyar}{\faGithub\: ayushjaipuriyar} \hspace{0.1em}
+  \href{https://www.linkedin.com/in/ayushjaipuriyar}{\faLinkedin\: ayushjaipuriyar}
 \end{center}
+%==========
+% \section{Summary}
+%==========
+% Backend-focused software engineer with hands-on experience delivering production-ready services on AWS. Shipped CI/CD, observability, and security controls; collaborate with cross-functional teams to drive measurable performance and reliability gains. Strengths include microservices architecture, REST/WebSocket APIs, caching/search (Redis, Elasticsearch), and automation.
+%==========
+\section{Education}
+%==========
+\subsection{University of Glasgow \aux{MSc in Computer Science} \rside{Sep. 2024 -- Sep. 2025}}
+\subsection{Manipal University Jaipur \aux{BTech in Information Technology} \rside{Jun. 2020 -- Jun. 2024}}
 
 %====== BANNER END ======
-
 \section{Experience}
 %===================
+
 \subsection{Healthtrip \rside{Noida, India}}
-\subsubsection{Software Developer Intern \rside{Jan 2024 -- Aug 2024}}
+\subsubsection{Software Developer Intern \rside{Jan. 2024 -- Aug. 2024}}
 \begin{itemize}
-  \item \textbf{Spearheaded} the migration of 50\% of a critical project from \textbf{PHP} to \textbf{NestJS}, that \textbf{enhanced scalability and performance by 75\%}.
-  \item \textbf{Implemented Redis caching} and integrated \textbf{Elasticsearch}, achieving a \textbf{90\% reduction in data retrieval times} and a \textbf{60\% increase in search performance}.
-  \item \textbf{Engineered high-performance RESTful APIs} using \textbf{Node.js}, \textbf{Express}, and \textbf{WebSockets} enabling efficient communication between microservices and \textbf{enhancing system interoperability and scalability by 40\%}.
-  \item \textbf{Conducted unit and integration testing} using \textbf{Postman} and \textbf{Jest} to \textbf{ensure high code quality and performance}.
-  \item \textbf{Performed regular software maintenance and monitoring} to \textbf{ensure reliability and availability}.
-  \item \textbf{Designed a custom multilingual solution} supporting 9 languages, \textbf{boosting user engagement by 75\%}.
-  \item \textbf{Integrated role-based access control}, to secure user data and enhance application security.
-  \item \textbf{Managed cloud computing infrastructure} via \textbf{Cloudflare}, \textbf{EC2}, \textbf{CloudFront}, and \textbf{S3}, optimizing caching, security, and load times \textbf{cutting page load by 50\%}.
+  \item Spearheaded migration of 50\% of a PHP monolith to \textbf{NestJS}, improving scalability and performance by \textbf{~75\%} for \textbf{10K+ daily users}.
+  \item Overhauled content delivery with \textbf{Redis caching} and \textbf{Elasticsearch indexing}, cutting data retrieval time by \textbf{~90\%} and boosting search performance by \textbf{~60\%}.
+  \item Shipped an in-house \textbf{translation-management web app} supporting \textbf{9 languages}, replacing a brittle third-party crawler and increasing engagement by \textbf{~75\%}.
+  \item Engineered production-ready \textbf{REST + WebSocket APIs} with \textbf{RBAC policies}, improving interoperability, scalability, and system security by \textbf{40--60\%}.
+  \item Managed \textbf{AWS + Cloudflare infrastructure} (EC2, S3, CloudFront, SSL, WAF, caching), enhancing security and cutting global page load times by \textbf{~50\%}.
+  \item Established \textbf{CI/CD pipelines} (GitHub Actions to AWS EC2) for automated beta/stable rollouts, reducing deployment time from hours to minutes.
+  \item Conducted \textbf{unit and integration testing} using Postman and Jest, ensuring reliability and high code quality across services.
+  \item Collaborated with cross-functional \textbf{frontend (Next.js)}, \textbf{Android}, and \textbf{Python} teams to debug APIs and streamline delivery pipelines, accelerating feature releases by \textbf{~30\%}.
 \end{itemize}
 
 \subsection{AST Consulting \rside{New Delhi, India}}
-\subsubsection{Software Developer Intern \rside{Jun 2023 - Aug 2023}}
+\subsubsection{Software Developer Intern \rside{Jun. 2023 -- Aug. 2023}}
 \begin{itemize}
-  \item Integrated \textbf{AWS services} to build a \textbf{CDN}, \textbf{reducing image loading time by 50\% and latency by 40\%}.
-  \item Set up \textbf{CI/CD pipelines} and implemented continuous integration using \textbf{GitHub Actions}, \textbf{improving deployment speed by 40\% and ensuring 95\%+ uptime}.
-  \item Created documentation and deployment pipelines using \textbf{Docker} and \textbf{GitHub Actions}, \textbf{enhancing deployment efficiency}.
-  \item Collaborated with team members to troubleshoot issues and deliver projects on schedule in fast-paced environments.
-  \item Introduced code review and version control workflows via \textbf{GitHub}, \textbf{reducing bugs by 30\% post-release}.
+  \item Architected and maintained backend services using \textbf{NestJS}, \textbf{MongoDB}, and \textbf{TypeScript}, improving maintainability and modularity.
+  \item Built and deployed a \textbf{CDN on AWS} (\textbf{S3}, \textbf{CloudFront}, \textbf{EC2}), cutting image load times by \textbf{~50\%} and reducing latency by \textbf{~40\%}.
+  \item Set up \textbf{CI/CD pipelines} with \textbf{GitHub Actions} and \textbf{Docker}, accelerating deployments by \textbf{~40\%} and ensuring \textbf{95\%+ uptime}.
+  \item Introduced structured \textbf{code review} and \textbf{version control workflows} via GitHub, reducing post-release bugs by \textbf{~30\%}.
+  \item Automated key operations with \textbf{bots} and \textbf{timezone-aware schedulers}, improving developer productivity and user responsiveness.
+  \item Collaborated across product and DevOps teams to deliver stable releases in fast-paced environments.
 \end{itemize}
 
+%===================
 \section{Projects}
-\subsection{LeetCode MCP Server \rside{\href{https://github.com/ayushjaipuriyar/leetcode-mcpserver}{GitHub}\hspace{0.1cm}, \href{https://www.npmjs.com/package/leetcode-mcpserver}{NPM}}}
+
+\subsection{LeetCode MCP Server \rside{\href{https://github.com/ayushjaipuriyar/leetcode-mcpserver}{GitHub}, \href{https://www.npmjs.com/package/leetcode-mcpserver}{NPM}}}
 \begin{itemize}
-  \item Developed a modular \textbf{MCP server} that provides streamlined access to \textbf{LeetCode problems}, solutions, and user progress, handling over 10,000 daily requests and \textbf{boosting learning efficiency by 80\%}.
-  \item Designed and integrated multiple tools and APIs for fetching daily challenges, problem details, solutions, contest rankings, and submission reports, \textbf{helping users solve problems more effectively}.
-  \item Implemented optional user authentication to support secure code submission and progress tracking, \textbf{increasing active user engagement by 35\%}.
+  \item Released a modular \textbf{MCP server} exposing problems, contests, solutions, and submission stats; early adoption (~80 downloads) with foundation for growth.
+  \item Launched daily challenge, ranking aggregation, and submission reporting tools reducing manual site navigation.
+  \item Enabled optional auth for secure submissions and personalized progress.
 \end{itemize}
+
 \subsection{Segmentor \rside{\href{https://github.com/ayushjaipuriyar/animepahe-dl}{GitHub}, \href{https://pypi.org/project/animepahe-dl/}{PyPI}}}
 \begin{itemize}
-  \item Developed and published {Segmentor}, a \textbf{cross-platform} Python application with CLI and GUI support to scrape websites, fetch \texttt{.m3u8} streams, download segmented media files in \textbf{batch} and \textbf{multi-threading}, and stitch them into complete videos using \textbf{ffmpeg}.
-  \item Automated releases via \textbf{GitHub Actions} and \textbf{PyPI} for streamlined deployment and updates.
+  \item Architected cross-platform Python CLI/GUI tool to fetch \texttt{.m3u8} manifests, spawn up to 100 parallel segment downloads, and stitch via \textbf{ffmpeg}; typical 20+ min stream assembled in $\le 60s$ on high bandwidth.
+  \item Orchestrated packaging and release (GitHub Actions to PyPI/AUR), enabling rapid distribution and updates.
+  \item Introduced segmented retry + checksum validation reducing failed merge artifacts by ~70\% across varied network conditions.
 \end{itemize}
-\subsection{RIC xApps Malicious Detection \rside{\href{https://github.com/ayushjaipuriyar/ric-xapps-malicious-detection/}{GitHub}}}
+
+\subsection{RIC xApps Malicious Detection \rside{\href{https://github.com/ayushjaipuriyar/ric-xapps-malicious-detection}{GitHub}}}
 \begin{itemize}
-  \item Designed and implemented an end-to-end O-RAN testbed integrating \textbf{srsRAN}, \textbf{Open5GS}, and a Near-RT RIC with custom Python xApps for real-time KPM metric collection, temporal feature engineering, and multi-stage ML-based malicious UE detection.
-  \item Automated full experiment orchestration (traffic generation, RAN setup, metric logging) for reproducible 4G/5G datasets and live inference.
+  \item Engineered cascading multi-class xApps (Near-RT RIC, \textbf{srsRAN}, \textbf{Open5GS}) classifying 10 traffic classes (4 benign, 6 malicious) with sub-second inference.
+  \item Generated 15,168 labeled samples (3 emulated UEs) and set up end-to-end orchestration (traffic to RAN lifecycle to logging), saving ~2--3 hrs per run.
+  \item Delivered 45\% multi-class accuracy (binary 67--73\%); high F1 on advanced attacks (76\% pulsing UDP flood, 55--63\% others) vs 0--2\%.
 \end{itemize}
 
 \subsection{Vantage-14are05 \rside{\href{https://github.com/ayushjaipuriyar/vantage-14are05}{GitHub}}}
 \begin{itemize}
-  \item Published a utility tool for Linux enabling \textbf{ACPI calls} for performance and battery tuning on \textbf{Lenovo Slim 5 AMD laptops}.
-  \item Focused on cross-platform development compatibility and user experience design for \textbf{seamless utility use}.
-\end{itemize}
+  \item Released Linux utility exposing ACPI performance/battery tuning controls for Lenovo laptops.
+  \item Added profile switching (performance / balanced / battery-saver) reducing average discharge rate.
+  \end{itemize}
 
+%===================
 \section{Skills}
 \begin{description}
-  \item[Programming Languages] C/C++, Java, Python, JavaScript, TypeScript, HTML/CSS, Bash, PHP, SQL, YAML, JSON
-  \item[Frameworks \& Libraries] Node.js, Next.js, NestJS, Express.js, React, Redux, Pandas, NumPy, Matplotlib, Flask, FastAPI, Bootstrap, Django, SQLAlchemy, Mongoose, PyTorch, TensorFlow, Scikit-learn, Pillow, BeautifulSoup 
-  \item[Testing \& Debugging] Postman, Jest
-  \item[Databases \& Caching] MongoDB, PostgreSQL, MySQL, Redis, Elasticsearch, Firebase
-  \item[Cloud/DevOps] AWS (EC2, S3, CloudFront), GCP, Docker, Git, CI/CD, GitHub Actions, Jenkins, Kubernetes, Cloudflare
-  \item[Developer Tools] Postman, Stripe, Google Analytics, Microsoft Clarity, Jest, Git, npm, Yarn, Webpack, Pnpm
-  \item[Methodologies] Agile/Scrum, Microservices Architecture, RESTful APIs, GraphQL, serverless, SDLC, OOP, DevOps Practices, Continuous Integration
+  \item[Languages] C/C++, Java, Python, JavaScript/TypeScript, SQL, Bash, HTML/CSS
+  \item[Backend \& Data] Node.js, NestJS, Express, Flask, Django, PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch
+  \item[Frontend] React JS, Next.js, Redux, Bootstrap
+  \item[ML/Data Tools] Pandas, NumPy, PyTorch, TensorFlow, Scikit-learn, Matplotlib
+  \item[DevOps/Cloud] AWS (EC2, S3, CloudFront), GCP, Docker, GitHub Actions, Kubernetes, Cloudflare, CI/CD
+  \item[Testing/Tooling] Jest, Postman, Git, npm/Yarn/Pnpm
+  \item[Practices] Microservices, REST, WebSockets, GraphQL, Agile/Scrum, OOP, SDLC
 \end{description}
+
 
 % \subsection{Movie Recommendation System \rside{\href{https://github.com/ayushjaipuriyar/movie-recommendation-engine}{GitHub}}}
 % \begin{itemize}
-%   \item Engineered a movie recommendation engine using K-means clustering and collaborative filtering.
 %   \item Designed a responsive, mobile-friendly user interface with ReactJS emphasizing UI/UX best practices.
-%   \item Built RESTful APIs with Flask and performed backend software testing to ensure system reliability.
-\section{Education}
-%==========
-\subsection{University of Glasgow \aux{MSc in Computer Science} \rside{Sep 2024 -- Present}}
-\subsection{Manipal University Jaipur \aux{BTech in Information Technology} \rside{Jun 2020 -- Jun 2024}}
-% \begin{itemize}
-% \item CGPA: 8.8/10
 % \end{itemize}
-
 \section{Publications}
 %=====================
 \begin{enumerate}

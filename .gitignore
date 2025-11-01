@@ -12,6 +12,11 @@
 *.cb2
 .*.lb
 
+## Archive
+*.zip
+*.tar
+*.tar.gz
+*.tar.bz2
 ## Intermediate documents:
 *.dvi
 *.xdv

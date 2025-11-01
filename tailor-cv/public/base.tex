@@ -1,0 +1,207 @@
+\documentclass[11pt,letterpaper]{article}
+
+%----------PACKAGES----------
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fontawesome5}
+\usepackage[hidelinks]{hyperref}
+%----------PAGE MARGINS----------
+% Adjust margins here. Examples:
+% \geometry{margin=1in}                         % uniform 1in
+% \geometry{margin=0.75in}                      % narrower uniform margins
+% \geometry{left=1in,right=1in,top=0.8in,bottom=0.8in} % custom
+% \geometry{left=0.75in,right=0.75in,top=0.6in,bottom=0.6in} % typical narrow resume
+\geometry{left=0.3in,right=0.3in,top=0.3in,bottom=0in}
+%----------DESIGN & TYPOGRAPHY----------
+\definecolor{primarycolor}{HTML}{2b2b2b}
+\definecolor{linkcolor}{HTML}{2b2b2b}
+\definecolor{graytext}{HTML}{555555}
+\hypersetup{colorlinks, urlcolor=linkcolor}
+\color{primarycolor}
+\linespread{0.92}\selectfont
+\renewcommand{\arraystretch}{0.92}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\titleformat{\section}{\Large\color{black}\bfseries}{}{0em}{}[\color{gray!50}\titlerule]
+\titlespacing*{\section}{0pt}{0pt}{4pt}
+
+%----------CUSTOM COMMANDS----------
+\newcommand{\resumeEntry}[5]{%
+  \noindent
+  \ifstrempty{#1#3}{}{%
+    \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+      {\textbf{\large #1}} & {\textbf{\color{graytext} #3}} \\
+    \end{tabular*}
+  }%
+  \ifstrempty{#2#4}{}{\vspace{-2pt}}%
+  \ifstrempty{#2#4}{}{%
+    \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+      {\textit{\normalsize #2}} & {\textit{\color{graytext} #4}} \\
+    \end{tabular*}
+  }%
+  \ifstrempty{#5}{}{
+    \begin{itemize}[leftmargin=1.5em, topsep=1pt, itemsep=1pt, parsep=0pt, partopsep=0pt, label=\textbullet]
+      #5
+    \end{itemize}
+  }
+  \ifstrempty{#1#2#3#4#5}{}{\vspace{4pt}}
+}
+
+\newcommand{\educationEntry}[3]{%
+  \noindent
+  \makebox[\textwidth]{%
+    {\large\textbf{#1} \textbar\ \textit{#2}}%
+    \hfill
+    {\textbf{#3}}%
+  }%
+  \par\vspace{2pt}%
+}
+\newcommand{\CPP}{C\nolinebreak[4]\hspace{-.05em}\raisebox{.22ex}{\footnotesize\bf ++}}
+\newcommand{\certEntry}[3]{%
+  \resumeEntry{\ifstrempty{#3}{#1}{\href{#3}{#1}}}{} {#2}{}{}\vspace{-2pt}%
+}
+\newcommand{\pubEntry}[6]{%
+  \noindent
+  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    {\textbf{\large \ifstrempty{#5}{#3}{\href{#5}{#3}}}} & {\textbf{\color{graytext} #1}} \\
+  \end{tabular*}
+  \vspace{-2pt}
+  {\textit{#2}} \textemdash{} \textit{#4}\ifstrempty{#6}{}{ \textemdash{} doi: \ifstrempty{#5}{\texttt{#6}}{\href{#5}{\texttt{#6}}}}%
+  \vspace{4pt}
+}
+
+%----------DOCUMENT START----------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge\bfseries Ayush Jaipuriyar} \\[3pt]
+    \color{graytext}
+    \href{https://www.linkedin.com/in/ayushjaipuriyar}{\faLinkedin\ ayushjaipuriyar}
+    \href{mailto:ayushjaipuriyar21@gmail.com}{\faEnvelope\ ayushjaipuriyar21@gmail.com}
+    \href{https://github.com/ayushjaipuriyar}{\faGithub\ ayushjaipuriyar}
+    \href{tel:+447721170466}{\faPhone\ +44 07721170466} \quad
+    \faGlobe\ Glasgow, UK
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+
+\educationEntry
+{M.Sc. in Computer Science}
+{University of Glasgow}
+{Sep 2024 -- Sep 2025}
+
+\educationEntry
+{B.Tech. in Information Technology}
+{Manipal University Jaipur}
+{Jun 2020 -- Jun 2024}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+
+\resumeEntry
+{Software Developer Intern}
+{Healthtrip}
+{Noida, India}
+{Jan 2024 -- Aug 2024}
+{
+    \item Migrated 50\% of a \textbf{monolithic backend} to a \textbf{modular architecture}, improving \textbf{scalability and throughput by ~75\%} for 10K+ daily users.
+    \item Re-engineered \textbf{multi-lingual content delivery and search pipelines} with \textbf{fuzzy and typo-tolerant queries}, deploying an in-house translation platform, reducing latency by ~90\% and improving search performance by ~60\%.
+    \item Developed \textbf{secure production APIs} optimizing interoperability and reducing global page load times by 40–60\%.
+    \item Streamlined \textbf{deployment pipelines} with comprehensive testing, cutting deployment time from hours to minutes and accelerating feature delivery by ~30\%.
+    \item Collaborated across \textbf{frontend, mobile, and backend teams} to optimize system reliability and development efficiency.
+}
+
+\resumeEntry
+{Software Developer Intern}
+{AST Consulting}
+{New Delhi, India}
+{Jun 2023 -- Aug 2023}
+{
+    \item Built and maintained \textbf{backend services} for modular, high-performance operations.
+    \item Launched a \textbf{CDN}, cutting image load times by ~50\% and latency by ~40\%.
+    \item Implemented \textbf{CI/CD pipelines} and automated deployments, ensuring 95\%+ uptime and 40\% faster releases.
+    \item Introduced structured \textbf{code review and version control workflows}, reducing post-release bugs by ~30\%.
+    \item Streamlined operations with \textbf{automation bots} and collaborated with cross-functional teams for stable releases.
+}
+
+%-----------PROJECTS-----------
+\section{Projects}
+
+\resumeEntry
+{LeetCode MCP Server}
+{}
+{\href{https://github.com/ayushjaipuriyar/leetcode-mcpserver}{GitHub} | \href{https://www.npmjs.com/package/leetcode-mcpserver}{NPM}}
+{}
+{
+    \item Developed an \textbf{MCP server} for LeetCode problems, contests, and user data enabling programmatic retrieval and intelligent interaction.
+    \item Implemented \textbf{secure code submission, real-time evaluation, and async endpoints} for full workflow automation.
+    \item Launched \textbf{daily challenges, ranking aggregation, and submission analytics} for enhanced developer engagement.
+}
+
+\resumeEntry
+{Segmentor}
+{}
+{\href{https://github.com/ayushjaipuriyar/animepahe-dl}{GitHub} | \href{https://pypi.org/project/animepahe-dl/}{PyPI}}
+{}
+{
+    \item Python tool to fetch \textbf{.m3u8 manifests}, download 100+ segments in parallel, and assemble streams via \textbf{ffmpeg} in $\leq$60s.
+    \item Added \textbf{segmented retries, checksum validation, and error handling}, improving download reliability by ~70\%.
+    \item Streamlined \textbf{CI/CD, packaging, and multi-platform distribution} via GitHub Actions, PyPI, and AUR.
+}
+
+\resumeEntry
+{Near-RT RIC ML-based Malicious Traffic Detection}
+{}
+{\href{https://github.com/ayushjaipuriyar/ric-xapps-malicious-detection}{GitHub}}
+{}
+{
+    \item Integrated an \textbf{ML pipeline} on \textbf{Near-RT RIC} with multi-class classifiers as cascading xApps interfacing with srsRAN and Open5GS.
+    \item Classified 10 traffic classes (4 benign, 6 malicious) using optimized feature extraction and inference.
+    \item Achieved high-performance ML metrics: 45\% multi-class accuracy, 67–73\% binary accuracy, and strong F1 scores (up to 76\%).
+}
+
+\resumeEntry
+{Vantage-14are05}
+{}
+{\href{https://github.com/ayushjaipuriyar/vantage-14are05}{GitHub}}
+{}
+{
+    \item Released a \textbf{Linux utility} exposing ACPI performance and battery tuning controls for Lenovo laptops.
+    \item Added \textbf{profile switching} (performance / balanced / battery-saver) optimizing power consumption.
+    \item Reduced average battery discharge rate through automated CPU and system power tuning.
+}
+
+%-----------SKILLS-----------
+\section{Skills}
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}p{0.8\linewidth}}
+    \textbf{Languages} & C/C++, Java, Python, JavaScript/TypeScript, SQL, Bash, HTML/CSS \\
+    \textbf{Backend} & Node.js, NestJS, Express, Flask, Django, PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch \\
+    \textbf{Frontend} & React, Next.js, Redux, Bootstrap \\
+    \textbf{ML/Data} & Pandas, NumPy, PyTorch, TensorFlow, Scikit-learn, Matplotlib \\
+    \textbf{DevOps/Cloud} & AWS (EC2, S3, CloudFront), GCP, Docker, Kubernetes, GitHub Actions, Cloudflare, CI/CD \\
+    \textbf{Testing/Tools} & Jest, Postman, Git, npm/Yarn/Pnpm \\
+    \textbf{Practices} & Microservices, REST, WebSockets, GraphQL, Agile/Scrum, OOP, SDLC \\
+\end{tabular*}
+\vspace{6pt}
+
+%-----------PUBLICATIONS-----------
+\section{Publications}
+\pubEntry{2025}{Ayush Jaipuriyar, A. Yadav, S. Roy, U. Rawat}{A lossless image encryption technique using chaotic map and DNA encoding}{Multimedia Tools and Applications, Apr. 2025}{https://doi.org/10.1007/s11042-025-20851-w}{10.1007/s11042-025-20851-w}
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+\certEntry{Node.js, Express, MongoDB \& More: The Complete Bootcamp}{Udemy}{https://ude.my/UC-fd818ef6-3bcc-49cc-a90c-407c5e43b850}
+\certEntry{Learn Python Programming Masterclass}{Udemy}{https://www.udemy.com/certificate/UC-b89616fd-a064-4c83-8314-6867d7143ea6/}
+\certEntry{AWS Machine Learning Foundations}{Udacity}{https://graduation.udacity.com/confirm/RYJZDCAY}
+\certEntry{React - The Complete Guide}{Udemy}{https://www.udemy.com/certificate/UC-53e501f1-5b7f-45d6-acbc-081cff558c41/}
+\certEntry{Red Hat System Administration I \& II (RH124/RH134)}{Red Hat}{https://www.redhat.com/en/services/training-and-certification/certification}
+\certEntry{C and C++ Specialization (with Honors)}{Coursera}{https://www.coursera.org/account/accomplishments/specialization/certificate/5SLFB6AGNFQR}
+\certEntry{JavaScript - The Complete Guide}{Udemy}{https://www.udemy.com/certificate/UC-495bff25-f476-475e-b17d-965581b1933e/}
+
+\end{document}

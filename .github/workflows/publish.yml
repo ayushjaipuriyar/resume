@@ -10,11 +10,42 @@ defaults:
     working-directory: .
 
 jobs:
-  build_resume:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+      - name: Lint LaTeX with chktex
+        uses: j2kun/chktex-action@v2
+        with:
+          file: Ayush_Jaipuriyar.tex
+
+  spellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Spell check LaTeX file
+        run: |
+          # Install aspell
+          sudo apt-get update && sudo apt-get install -y aspell aspell-en
+          # Extract text from LaTeX (basic, ignores commands)
+          sed -e 's/\\[a-zA-Z]*{[^}]*}//g' -e 's/\\[a-zA-Z]*//g' Ayush_Jaipuriyar.tex > temp.txt
+          aspell list --lang=en < temp.txt > misspellings.txt
+          if [ -s misspellings.txt ]; then
+            echo "Misspellings found:"
+            cat misspellings.txt
+            exit 1
+          else
+            echo "No misspellings found."
+          fi
+
+  build_resume:
+    runs-on: ubuntu-latest
+    needs: [lint, spellcheck]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -40,7 +71,7 @@ jobs:
           echo "version=$NEXT_TAG" >> $GITHUB_OUTPUT
 
       - name: Convert to PDF
-        uses: xu-cheng/latex-action@v3
+        uses: xu-cheng/latex-action@v4
         with:
           root_file: Ayush_Jaipuriyar.tex
           # Enable caching for faster builds

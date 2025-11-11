@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -40,13 +40,25 @@ jobs:
           echo "version=$NEXT_TAG" >> $GITHUB_OUTPUT
 
       - name: Convert to PDF
-        uses: xu-cheng/latex-action@3.2.0
+        uses: xu-cheng/latex-action@v3
         with:
           root_file: Ayush_Jaipuriyar.tex
+          # Enable caching for faster builds
+          latexmk_use_lualatex: false  # or true if using LuaLaTeX
+          latexmk_shell_escape: false
+
+      - name: Check PDF exists
+        run: |
+          if [ ! -f Ayush_Jaipuriyar.pdf ]; then
+            echo "PDF not generated"
+            exit 1
+          fi
 
       - name: Tag the release
         run: |
           new_tag=${{ steps.increment_version.outputs.version }}
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git tag $new_tag
           git push origin $new_tag
 

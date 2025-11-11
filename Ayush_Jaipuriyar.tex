@@ -1,209 +1,239 @@
-%-------------------------
-% Rover Resume - Star Template
-% Link: https://github.com/subidit/rover-resume
-%
-% CUSTOM COMMANDS \aux{} and \rside{} for part formatting
-% eg. \subsection{Company Name \aux{Designation} \rside{Duration}}
-% Double lined titles with \subsection{} and \subsubsection{}
-% \linkicon gives external link icon
-%-------------------------
+\documentclass[a4paper,11pt]{article}
 
-\documentclass[letterpaper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+% provide ActualText support so we can embed invisible text in the PDF text layer
+\usepackage{accsupp}
+\usepackage[margin=0.35in]{geometry}
+\input{glyphtounicode}
+\setlength{\footskip}{5pt}
 
-\usepackage[sfdefault,semibold,lf]{FiraSans}
-% \usepackage[a4paper,margin=0.4in]{geometry} % reduced bottom margin from 1in to 0.5in
-\usepackage[letterpaper,margin=0.5in]{geometry} % Document margins
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+\usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
 
-\usepackage{xcolor}
-\definecolor{accent}{HTML}{141E61}
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
 
-\setcounter{secnumdepth}{0}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% % Adjust margins
+% \addtolength{\oddsidemargin}{-0.5in}
+% \addtolength{\evensidemargin}{-0.5in}
+% \addtolength{\textwidth}{1in}
+% \addtolength{\topmargin}{-.5in}
+% \addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+    \vspace{-10pt}\bfseries\scshape\raggedright\Large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
 
-%====== LIST FORMATTING ======
-\usepackage{enumitem}
-\setlist[itemize]{nosep, left=0pt .. 1.5em}
-\setlist[enumerate]{left=0pt..1.5em}
-\setlist[description]{itemsep=0pt}
-
-%====== TITLE FORMATTING ======
-\usepackage{xhfill}
-\usepackage{soul}
-\newcommand{\midrule}[1]{
-  \leavevmode
-  \xrfill[.5ex]{1pt}[accent]~\so{#1}~\xrfill[.5ex]{1pt}[accent]
+%-------------------------
+% Custom commands (Jake template)
+\newcommand{\resumeItem}[1]{
+    \item\small{
+        {#1 \vspace{-4pt}}
+    }
 }
 
-\usepackage{titlesec}
-\titlespacing{\section}{0pt}{*2}{*1}
-\titlespacing{\subsection}{0pt}{*3}{*0}
-\titlespacing{\subsubsection}{0pt}{*0}{*0}
-\titleformat{\section}{\large\bfseries\uppercase}{}{}{\midrule}
-\titleformat*{\subsection}{\large\bfseries}
-
-%====== CUSTOM COMMANDS ======
-\newcommand{\aux}[1]{
-  $|$ \space {\small\normalfont\itshape #1}%
+\newcommand{\resumeSubheading}[4]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
 }
 
-\newcommand{\rside}[1]{
-  \hfill {\small\color{accent} #1}%
+% Education-specific entry (similar to resumeSubheading but tailored for education)
+\newcommand{\resumeEducationEntry}[3]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+            \textbf{#1} $|$ #2 & #3 \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\invisible}[1]{%
+  \leavevmode%
+  \makebox[0pt][l]{\textcolor{white}{\tiny #1}}%
 }
 
-% \setlength{\headheight}{-0.5in}
-% \setlength{\topmargin}{-0.5in}
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
 
-%====== FOOTER ======
-% \usepackage{lastpage}
-% \usepackage{fancyhdr}
-% \pagestyle{fancy}
-% \fancyhf{}
-% \renewcommand{\headrulewidth}{0pt}
+\newcommand{\resumeProjectHeading}[3]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small\textbf{#1} $|$ #2 & #3 \\
+    \end{tabular*}\vspace{-7pt}
+}
 
-% Replace 'Star Rover' with your name in next line
-% \fancyfoot[C]{\small\color{gray} Star Rover -- Page \thepage\ of \pageref*{LastPage}}
 
-\pagestyle{empty}
-% uncomment previous line to hide page numbering
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
 
-%====== PACKAGES ======
-\usepackage{fontawesome5}
-% \usepackage{multicol}
-\usepackage[bookmarks=false,hidelinks]{hyperref}
-% Typography & justification enhancements
-\usepackage{microtype}
-\usepackage{ragged2e}
-\Urlmuskip=0mu plus 1mu
-\tolerance=1000
-\pretolerance=500
-\emergencystretch=2em
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-%====== FINISH PREAMBLE ======
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=5pt, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=10pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
-%====== DOCUMENT STARTS HERE ======
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\justifying
 
-%====== BANNER ======
-
+%----------HEADING----------
+% pull heading up slightly to reduce top margin
+\vspace*{-30pt}
 \begin{center}
-  {
-    \fontsize{26}{12}
-    \fontseries{heavy}\selectfont
-    \color{accent}
-    Ayush Jaipuriyar
-  } \\ \medskip
-
-  % {\color{gray}{\faHome}} 1 infinite loop, CA \hspace{0.1em}
-
-  {{\color{gray}\faGlobe}: Glasgow, UK}
-  \href{tel:+4407721170466}{\faPhone\: +4407721170466} \hspace{0.1em}
-  \href{mailto:ayushjaipuriyar21@gmail.com}{\faEnvelope\: ayushjaipuriyar21@gmail.com} \hspace{0.1em}
-  \href{https://github.com/ayushjaipuriyar}{\faGithub\: ayushjaipuriyar} \hspace{0.1em}
-  \href{https://www.linkedin.com/in/ayushjaipuriyar}{\faLinkedin\: ayushjaipuriyar}
+    \textbf{\Huge \scshape Ayush Jaipuriyar} \\ \vspace{4pt}
+    \small \href{tel:+447721170466}{\underline{+44 7721170466}} $|$ \href{mailto:ayushjaipuriyar21@gmail.com}{\underline{ayushjaipuriyar21@gmail.com}} $|$ \href{https://portfolio.ayushjaipuriyar.com}{\underline{Portfolio}} $|$
+    \href{https://www.linkedin.com/in/ayushjaipuriyar}{\underline{LinkedIn}} $|$
+    \href{https://github.com/ayushjaipuriyar/}{\underline{Github}} $|$ Glasgow, UK
 \end{center}
-%==========
-% \section{Summary}
-%==========
-% Backend-focused software engineer with hands-on experience delivering production-ready services on AWS. Shipped CI/CD, observability, and security controls; collaborate with cross-functional teams to drive measurable performance and reliability gains. Strengths include microservices architecture, REST/WebSocket APIs, caching/search (Redis, Elasticsearch), and automation.
-%==========
+%-----------SUMMARY-----------
+\section{Summary}
+\noindent
+Full stack Software Engineer specializing in scalable, fault-tolerant distributed systems and APIs; experienced with AWS, Docker, Kubernetes and CI/CD — cut API latency 800 ms → 200 ms and deployments 3 h → 10 m.
 \section{Education}
-%==========
-\subsection{University of Glasgow \aux{MSc in Computer Science} \rside{Sep. 2024 -- Sep. 2025}}
-\subsection{Manipal University Jaipur \aux{BTech in Information Technology} \rside{Jun. 2020 -- Jun. 2024}}
+\resumeSubHeadingListStart
+\resumeEducationEntry{M.Sc. in Computer Science}{University of Glasgow}{Sep 2024 -- Sep 2025}
+\resumeEducationEntry{B.Tech. in Information Technology}{Manipal University Jaipur}{Jun 2020 -- Jun 2024}
+\resumeSubHeadingListEnd
 
-%====== BANNER END ======
+
+%-----------PROFESSIONAL EXPERIENCE-----------
 \section{Experience}
-%===================
+\resumeSubHeadingListStart
+\resumeSubheading
+{Full Stack Software Engineer \invisible{back-end}Intern}{Jan 2024 -- Aug 2024}
+{Healthtrip}{Noida, India}
+\resumeItemListStart
+\resumeItem{Refactored and migrated \textbf{50\%} of a PHP monolith into NestJS microservices, reducing API latency by \textbf{38\%} (400ms $\rightarrow$ 250ms) for \textbf{10,000+} daily users.}
+\resumeItem{Built a self-serve partner platform (Kong, OAuth2, Redis), automating onboarding from \textbf{4 days} to \textbf{10 minutes} and increasing partner acquisition by \textbf{60\%}.}
+\resumeItem{Implemented multi-tier Redis caching (reduced DB load by \textbf{70\%}) and automated Docker/Kubernetes CI/CD to enable \textbf{zero-downtime} releases and accelerate UI data retrieval by \textbf{90\%}.}
+\resumeItem{Engineered a fault-tolerant backend translation system supporting \textbf{9} languages and \textbf{5,000+} entries/day, delivering \textbf{100\%} uptime and boosting global engagement by \textbf{70\%}.}
+\resumeItem{Integrated Elasticsearch with multilingual/fuzzy search, improving cross-language matching by \textbf{60\%} and increasing user engagement by \textbf{70\%}.}
+\resumeItem{Automated CI/CD (Jenkins, GitHub Actions, Docker, K8s) and configured AWS/Cloudflare (WAF/CDN) to double release frequency, halve page load times (\textbf{3.2s} $\rightarrow$ \textbf{1.6s}), and maintain \textbf{99.9\%} uptime.}
+% \resumeItem{Accelerated \textbf{full-stack} development by refactoring \textbf{50\%} of a PHP monolith into scalable NestJS microservices, enabling faster \textbf{React/Next.js} feature releases and cutting API latency by \textbf{38\%} (400ms $\rightarrow$ 250ms) for \textbf{10,000+} daily users.}
+% \resumeItem{Engineered a \textbf{self-serve partner platform} by deploying a secure API Gateway (Kong, OAuth2, Redis), creating a full-stack solution that automated portal launches and cut onboarding time from \textbf{4 days to 10 minutes}, boosting partner acquisition by \textbf{60\%}.}
+% \resumeItem{Mastered the \textbf{full-stack application lifecycle} by implementing multi-tier Redis caching (slashing DB load \textbf{70\%}) and automating \textbf{Docker/Kubernetes} deployments, enabling \textbf{zero-downtime releases} and boosting data retrieval for the UI by \textbf{90\%}.}
+% \resumeItem{Delivered a \textbf{full-stack internationalization} feature by engineering a fault-tolerant backend translation system (9 languages, \textbf{5,000+} entries/day); achieved \textbf{100\%} uptime via robust failover, boosting global user engagement by \textbf{70\%}.}
+% \resumeItem{Developed a \textbf{full-stack search feature} by integrating advanced Elasticsearch, implementing multilingual/fuzzy search to improve cross-language matching by \textbf{60\%} and increase user engagement by \textbf{70\%} across international markets.}
+% \resumeItem{Owned the \textbf{end-to-end DevOps lifecycle} and full-stack performance; automated CI/CD (Jenkins, Actions, Docker, K8s) to \textbf{double release frequency} and configured AWS/Cloudflare (WAF/CDN) to \textbf{slash page loads by 50\%} (3.2s $\rightarrow$ 1.6s) and guarantee \textbf{99.9\%} uptime.}
+\resumeItemListEnd
 
-\subsection{Healthtrip \rside{Noida, India}}
-\subsubsection{Software Developer Intern \rside{Jan. 2024 -- Aug. 2024}}
-\begin{itemize}
-  \item Spearheaded migration of 50\% of a PHP monolith to \textbf{NestJS}, improving scalability and performance by \textbf{~75\%} for \textbf{10K+ daily users}.
-  \item Overhauled content delivery with \textbf{Redis caching} and \textbf{Elasticsearch indexing}, cutting data retrieval time by \textbf{~90\%} and boosting search performance by \textbf{~60\%}.
-  \item Shipped an in-house \textbf{translation-management web app} supporting \textbf{9 languages}, replacing a brittle third-party crawler and increasing engagement by \textbf{~75\%}.
-  \item Engineered production-ready \textbf{REST + WebSocket APIs} with \textbf{RBAC policies}, improving interoperability, scalability, and system security by \textbf{40--60\%}.
-  \item Managed \textbf{AWS + Cloudflare infrastructure} (EC2, S3, CloudFront, SSL, WAF, caching), enhancing security and cutting global page load times by \textbf{~50\%}.
-  \item Established \textbf{CI/CD pipelines} (GitHub Actions to AWS EC2) for automated beta/stable rollouts, reducing deployment time from hours to minutes.
-  \item Conducted \textbf{unit and integration testing} using Postman and Jest, ensuring reliability and high code quality across services.
-  \item Collaborated with cross-functional \textbf{frontend (Next.js)}, \textbf{Android}, and \textbf{Python} teams to debug APIs and streamline delivery pipelines, accelerating feature releases by \textbf{~30\%}.
-\end{itemize}
+\resumeSubheading
+{Software Developer Intern}{Jun 2023 -- Aug 2023}
+{AST Consulting}{New Delhi, India}
+\resumeItemListStart
+% \resumeItem{Architected and led full-stack development (React, NestJS) for a global SaaS automation platform serving \textbf{5,000+} active users, deploying scalable microservices on AWS.}
+% \resumeItem{Engineered and automated cloud infrastructure, implementing CI/CD pipelines (GitHub Actions) for AWS EC2 and leveraging CloudFront CDN to cut image load times by \textbf{50\%} while maintaining \textbf{99.5\%} uptime.}
+% \resumeItem{Drove backend scalability and performance, optimizing MongoDB queries to reduce average response times by ~\textbf{45\%} (to \textbf{190ms}) and enabling the system to handle \textbf{1,500+} concurrent API requests.}
+% \resumeItem{Designed and implemented a unified API layer (REST/GraphQL) integrating Stripe/Chargebee billing for \textbf{2,000+} paying users, WhatsApp (WATI), and OpenAI for automation and billing workflows.}
+% \resumeItem{Established a data-driven monitoring loop using Google Analytics and Microsoft Clarity, translating user-behavior insights into targeted optimizations for React dashboards and automated backend workflows.}
+% \resumeItem{Developed and deployed an automated cross-platform posting solution (Telegram, WhatsApp), creating a feature that directly increased user engagement by ~\textbf{35\%}.}
+\resumeItem{Led full-stack SaaS platform (React, NestJS) for 5,000+ users, deploying scalable microservices on AWS.}
+\resumeItem{Automated CI/CD (GitHub Actions) for AWS EC2, leveraged CloudFront CDN to cut image loads 50\% with 99.5\% uptime.}
+\resumeItem{Optimized MongoDB queries (–45\% latency, 190ms), supporting 1,500+ concurrent requests.}
+\resumeItem{Built unified REST/GraphQL API integrating Stripe/Chargebee billing, WhatsApp (WATI), and OpenAI automations.}
+\resumeItem{Used Google Analytics and Clarity to drive UX and workflow improvements.}
+\resumeItem{Developed cross-platform posting (Telegram, WhatsApp), increasing engagement ~35\%.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
 
-\subsection{AST Consulting \rside{New Delhi, India}}
-\subsubsection{Software Developer Intern \rside{Jun. 2023 -- Aug. 2023}}
-\begin{itemize}
-  \item Architected and maintained backend services using \textbf{NestJS}, \textbf{MongoDB}, and \textbf{TypeScript}, improving maintainability and modularity.
-  \item Built and deployed a \textbf{CDN on AWS} (\textbf{S3}, \textbf{CloudFront}, \textbf{EC2}), cutting image load times by \textbf{~50\%} and reducing latency by \textbf{~40\%}.
-  \item Set up \textbf{CI/CD pipelines} with \textbf{GitHub Actions} and \textbf{Docker}, accelerating deployments by \textbf{~40\%} and ensuring \textbf{95\%+ uptime}.
-  \item Introduced structured \textbf{code review} and \textbf{version control workflows} via GitHub, reducing post-release bugs by \textbf{~30\%}.
-  \item Automated key operations with \textbf{bots} and \textbf{timezone-aware schedulers}, improving developer productivity and user responsiveness.
-  \item Collaborated across product and DevOps teams to deliver stable releases in fast-paced environments.
-\end{itemize}
-
-%===================
+%-----------PROJECTS-----------
 \section{Projects}
+\resumeSubHeadingListStart
+\resumeProjectHeading
+{LeetCode MCP Server}{Node.js, TypeScript, Express, WebSocket}{\href{https://github.com/ayushjaipuriyar/leetcode-mcpserver}{Github}}
+\resumeItemListStart
+\resumeItem{Developed an MCP server with 15+ tools and 5 endpoints, delivering median responses <150ms and real-time submission streaming that cut manual testing overhead 80\%.}
+\resumeItemListEnd
 
-\subsection{LeetCode MCP Server \rside{\href{https://github.com/ayushjaipuriyar/leetcode-mcpserver}{GitHub}, \href{https://www.npmjs.com/package/leetcode-mcpserver}{NPM}}}
-\begin{itemize}
-  \item Released a modular \textbf{MCP server} exposing problems, contests, solutions, and submission stats; early adoption (~80 downloads) with foundation for growth.
-  \item Launched daily challenge, ranking aggregation, and submission reporting tools reducing manual site navigation.
-  \item Enabled optional auth for secure submissions and personalized progress.
-\end{itemize}
+\resumeProjectHeading
+{Segmentor}{Python, ffmpeg, tkinter}{\href{https://github.com/ayushjaipuriyar/animepahe-dl}{Github}}
+\resumeItemListStart
+\resumeItem{Created a Python CLI to download 100+ .m3u8 segments in parallel and assemble streams via ffmpeg in $\leq$60s, improving throughput 10x and reliability ~70\%.}
+\resumeItemListEnd
 
-\subsection{Segmentor \rside{\href{https://github.com/ayushjaipuriyar/animepahe-dl}{GitHub}, \href{https://pypi.org/project/animepahe-dl/}{PyPI}}}
-\begin{itemize}
-  \item Architected cross-platform Python CLI/GUI tool to fetch \texttt{.m3u8} manifests, spawn up to 100 parallel segment downloads, and stitch via \textbf{ffmpeg}; typical 20+ min stream assembled in $\le 60s$ on high bandwidth.
-  \item Orchestrated packaging and release (GitHub Actions to PyPI/AUR), enabling rapid distribution and updates.
-  \item Introduced segmented retry + checksum validation reducing failed merge artifacts by ~70\% across varied network conditions.
-\end{itemize}
+\resumeProjectHeading
+{Near-RT RIC ML-based Malicious Traffic Detection }{Python, PyTorch, Open Ran}{\href{https://github.com/ayushjaipuriyar/ric-xapps-malicious-detection}{Github}}
+\resumeItemListStart
+\resumeItem{Built an ML pipeline on Near-RT RIC with xApps for real-time traffic analysis; classifiers achieved 67--73\% accuracy and F1 up to 76\%.}
+\resumeItemListEnd
 
-\subsection{RIC xApps Malicious Detection \rside{\href{https://github.com/ayushjaipuriyar/ric-xapps-malicious-detection}{GitHub}}}
-\begin{itemize}
-  \item Engineered cascading multi-class xApps (Near-RT RIC, \textbf{srsRAN}, \textbf{Open5GS}) classifying 10 traffic classes (4 benign, 6 malicious) with sub-second inference.
-  \item Generated 15,168 labeled samples (3 emulated UEs) and set up end-to-end orchestration (traffic to RAN lifecycle to logging), saving ~2--3 hrs per run.
-  \item Delivered 45\% multi-class accuracy (binary 67--73\%); high F1 on advanced attacks (76\% pulsing UDP flood, 55--63\% others) vs 0--2\%.
-\end{itemize}
+\resumeProjectHeading
+{Vantage-14are05 }{Linux, ACPI, Bash}{\href{https://github.com/ayushjaipuriyar/vantage-14are05}{Github}}
+\resumeItemListStart
+\resumeItem{Produced a Linux utility exposing ACPI performance and battery tuning controls with profile switching, reducing battery discharge 20--30\% and attracting community contributions.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
 
-\subsection{Vantage-14are05 \rside{\href{https://github.com/ayushjaipuriyar/vantage-14are05}{GitHub}}}
-\begin{itemize}
-  \item Released Linux utility exposing ACPI performance/battery tuning controls for Lenovo laptops.
-  \item Added profile switching (performance / balanced / battery-saver) reducing average discharge rate.
-  \end{itemize}
-
-%===================
-\section{Skills}
-\begin{description}
-  \item[Languages] C/C++, Java, Python, JavaScript/TypeScript, SQL, Bash, HTML/CSS
-  \item[Backend \& Data] Node.js, NestJS, Express, Flask, Django, PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch
-  \item[Frontend] React JS, Next.js, Redux, Bootstrap
-  \item[ML/Data Tools] Pandas, NumPy, PyTorch, TensorFlow, Scikit-learn, Matplotlib
-  \item[DevOps/Cloud] AWS (EC2, S3, CloudFront), GCP, Docker, GitHub Actions, Kubernetes, Cloudflare, CI/CD
-  \item[Testing/Tooling] Jest, Postman, Git, npm/Yarn/Pnpm
-  \item[Practices] Microservices, REST, WebSockets, GraphQL, Agile/Scrum, OOP, SDLC
-\end{description}
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+\small
+\begin{tabularx}{\textwidth}{@{}l X}
+    \textbf{Languages:}      & Java, C/C++, Python, JavaScript, TypeScript, SQL, Bash                            \\
+    \textbf{Frameworks:}     & React, Next.js, Redux, Node.js, NestJS, Express, Flask, Django                    \\
+    \textbf{Databases:}      & SQL, PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch                             \\
+    \textbf{DevOps / Cloud:} & AWS (EC2, S3, CloudFront), Docker, Kubernetes, Terraform, GitHub Actions, Jenkins, end-to-end CI/CD \\
+    \textbf{Observability:}  & Prometheus, Grafana, CloudWatch                                                   \\
+\end{tabularx}
 
 
-% \subsection{Movie Recommendation System \rside{\href{https://github.com/ayushjaipuriyar/movie-recommendation-engine}{GitHub}}}
-% \begin{itemize}
-%   \item Designed a responsive, mobile-friendly user interface with ReactJS emphasizing UI/UX best practices.
-% \end{itemize}
+%-----------PUBLICATIONS-----------
 \section{Publications}
-%=====================
-\begin{enumerate}
-  \item [2025] \textbf{A. Jaipuriyar}, A. Yadav, S. Roy, and U. Rawat, “A lossless image encryption technique using chaotic map and DNA encoding,” \textit{Multimedia Tools and Applications}, Apr. 2025. doi: \href{https://doi.org/10.1007/s11042-025-20851-w}{10.1007/s11042-025-20851-w}
-\end{enumerate}
+\resumeSubHeadingListStart
+\resumeSubheading
+{A Lossless Image Encryption Technique using Chaotic Map and DNA Encoding}{2025}
+{Multimedia Tools and Applications, Apr. 2025}{}
+\resumeSubHeadingListEnd
 
-\section{Certifications}
-%=======================
-\begin{enumerate}[label=\null, left=0pt..0pt, itemsep=0pt]
-  \item \textbf{Node.js, Express, MongoDB \& More: The Complete Bootcamp 2022\rside{Udemy}}
-  \item \textbf{Python Masterclass \rside{Udemy}}
-  \item \textbf{AWS Machine Learning Foundations\rside{Udacity}}
-  \item \textbf{React - The Complete Guide \rside{Udemy}}
-  \item \textbf{DFo Database Foundations Learner \rside{Oracle}}
-  \item \textbf{Red Hat System Administration I (RH124 )/ II (RH134) \rside{Red Hat}}
-  \item \textbf{C and C++ Specialization \rside{Coursera}}
-\end{enumerate}
+%-----------CERTIFICATIONS-----------
+% \section{Certifications}
+% \begin{itemize}[leftmargin=0.15in, label={},itemsep=0pt,parsep=0pt]
+%     \small{
+%     \item{\textbf{Node.js, Express, MongoDB \& More: The Complete Bootcamp}{- Udemy}}
+%     \item{\textbf{Learn Python Programming Masterclass}{- Udemy}}
+%     \item{\textbf{AWS Machine Learning Foundations}{- Udacity}}
+%     \item{\textbf{React - The Complete Guide}{- Udemy}}
+%     \item{\textbf{Red Hat System Administration I \& II (RH124/RH134)}{- Red Hat}}
+%     \item{\textbf{C and C++ Specialization (with Honors)}{- Coursera}}
+%     \item{\textbf{JavaScript - The Complete Guide}{- Udemy}}
+%           }
+% \end{itemize}
 
+%-------------------------------------------
 \end{document}

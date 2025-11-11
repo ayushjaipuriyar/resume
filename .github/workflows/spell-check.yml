@@ -1,0 +1,32 @@
+name: Spell Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  spellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install aspell
+        run: sudo apt-get update && sudo apt-get install -y aspell aspell-en
+
+      - name: Spell check LaTeX file
+        run: |
+          # Extract text from LaTeX (basic, ignores commands)
+          sed -e 's/\\[a-zA-Z]*{[^}]*}//g' -e 's/\\[a-zA-Z]*//g' Ayush_Jaipuriyar.tex > temp.txt
+          aspell list --lang=en < temp.txt | sort | uniq > misspellings.txt
+          if [ -s misspellings.txt ]; then
+            echo "Misspellings found:"
+            cat misspellings.txt
+            exit 1
+          else
+            echo "No misspellings found."
+          fi

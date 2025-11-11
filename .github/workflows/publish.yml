@@ -54,12 +54,6 @@ jobs:
             exit 1
           fi
 
-      - name: Upload PDF artifact
-        uses: actions/upload-artifact@v5
-        with:
-          name: resume-pdf
-          path: Ayush_Jaipuriyar.pdf
-
       - name: Tag the release
         run: |
           new_tag=${{ steps.increment_version.outputs.version }}
@@ -75,40 +69,3 @@ jobs:
         with:
           tag_name: ${{ steps.increment_version.outputs.version }}
           files: Ayush_Jaipuriyar.pdf
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build_resume
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Download PDF
-        uses: actions/download-artifact@v6
-        with:
-          name: resume-pdf
-
-      - name: Create Pages directory
-        run: |
-          mkdir -p public
-          cp Ayush_Jaipuriyar.pdf public/
-          echo '<html><body><a href="Ayush_Jaipuriyar.pdf">Download Resume PDF</a></body></html>' > public/index.html
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: public
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4

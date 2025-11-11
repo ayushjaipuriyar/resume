@@ -105,7 +105,7 @@ jobs:
           echo '<html><body><a href="Ayush_Jaipuriyar.pdf">Download Resume PDF</a></body></html>' > public/index.html
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: public
 

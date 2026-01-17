@@ -10,7 +10,8 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \usepackage{accsupp}
-\usepackage[margin=0.35in]{geometry}
+\usepackage{hyperref}
+\usepackage[margin=0.4in]{geometry}
 \input{glyphtounicode}
 
 \usepackage[sfdefault]{roboto}
@@ -45,7 +46,7 @@
 \newcommand{\resumeProjectHeading}[3]{
     \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-        \small\textbf{#1} $|$ #2 & #3 \\
+        \textbf{#1} $|$ #2 & #3 \\
     \end{tabular*}\vspace{-5pt}
 }
 \newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=10pt]}
@@ -63,27 +64,29 @@
 \begin{center}
     \textbf{\Huge \scshape Ayush Jaipuriyar} \\ \vspace{4pt}
     \small
-    \href{tel:+447721170466}{\underline{+44 7721170466}} $|$
+    \href{tel:+919968302859}{\underline{+91 9968302859}} $|$
     \href{mailto:ayushjaipuriyar21@gmail.com}{\underline{ayushjaipuriyar21@gmail.com}} $|$
     \href{https://portfolio.ayushjaipuriyar.uk}{\underline{Portfolio}} $|$
     \href{https://www.linkedin.com/in/ayushjaipuriyar}{\underline{LinkedIn}} $|$
     \href{https://github.com/ayushjaipuriyar}{\underline{GitHub}} $|$
-    Glasgow, UK
+    Bangalore, India
 \end{center}
 
 %-----------SUMMARY-----------
 \section{Professional Summary}
-Full-stack Software Engineer focused on delivering responsive UIs and scalable backend systems using React, TypeScript, and Node.js. Experienced with real-time data flows, performance tuning, and telemetry. Hands-on with CI/CD, cloud deployments, and observability, applying SRE-minded practices to improve reliability.
+Full-stack software engineer with 2+ years of experience building scalable backend systems and responsive web applications.
+Skilled in Node.js, NestJS, TypeScript, React/Next.js, and cloud deployments on AWS, with hands-on CI/CD experience.
+% Driven by building reliable, high-performance systems and shipping production-ready features end to end.
 %-----------EDUCATION-----------
 \section{Education}
 \resumeSubHeadingListStart
 \resumeSubheading
-{M.Sc. in Computer Science}{Sep 2024 -- Sep 2025}
+{M.Sc. in Computer Science}{Sep 2024 -- Dec 2025}
 {University of Glasgow}{}
 
-\resumeSubheading
-{B.Tech. in Information Technology}{Jun 2020 -- Jun 2024}
-{Manipal University Jaipur}{}
+% \resumeSubheading
+% {B.Tech. in Information Technology}{Jun 2020 -- Jun 2024}
+% {Manipal University Jaipur}{}
 \resumeSubHeadingListEnd
 
 %-----------WORK EXPERIENCE-----------
@@ -91,25 +94,26 @@ Full-stack Software Engineer focused on delivering responsive UIs and scalable b
 \resumeSubHeadingListStart
 
 \resumeSubheading
-{Full Stack Software Engineer Intern}{Jan 2024 -- Aug 2024}
+{Full Stack Software Engineer}{Jan 2024 -- Sep 2024}
 {Healthtrip}{Noida, India}
 \resumeItemListStart
-\resumeItem{Migrated PHP monolith to NestJS microservices, reducing DB load by 70\% and API latency from 300ms to 150ms.}
-\resumeItem{Created APIs, Redis caching and Elasticsearch for large-scale, multilingual search, increasing engagement by 70\%.}
-\resumeItem{Deployed CI/CD pipelines and automated deployments on AWS, cutting page load times from 3.2s to 1.6s.}
-\resumeItem{Added telemetry, monitoring, and error handling across services, improving observability and reducing debugging time.}
-\resumeItem{Engineered a multilingual content pipeline supporting 9 languages with 100\% uptime.}
+\resumeItem{Migrated a \textbf{PHP monolith} to \textbf{NestJS microservices}, overcoming scalability bottlenecks for \textbf{10K+ daily users}, \textbf{boosting throughput by 75\%}, reducing \textbf{API latency from 300ms to 150ms}, and enabling \textbf{independent service scaling}.}
+\resumeItem{Designed and engineered \textbf{high-performance REST APIs} with \textbf{Node.js, Express, and WebSockets}, enabling real-time inter-service communication and \textbf{reducing API response times by 40-50\%}.}
+\resumeItem{Optimised data retrieval and search by implementing \textbf{Redis caching} and integrating \textbf{Elasticsearch}, \textbf{cutting query latency by 90\%} and \textbf{improving search performance by 60\%}, which \textbf{increased user engagement by 70\%}.}
+\resumeItem{Designed a \textbf{Kafka based event-driven notification system} processing \textbf{1M+ events/day}, offloading notification delivery from synchronous APIs and \textbf{reducing P95 API latency by 30\%} while ensuring reliable retries and graceful degradation during traffic spikes.}
+\resumeItem{Built and deployed a \textbf{multilingual content pipeline} with a \textbf{custom translation system} supporting \textbf{9 languages} and \textbf{fuzzy matching}, achieving \textbf{100\% uptime} and \textbf{driving 75\% higher engagement} in non-English markets.}
+\resumeItem{Established \textbf{CI/CD pipelines} and \textbf{automated AWS deployments} using \textbf{GitHub Actions, Docker, EC2, S3, CloudFront, and Cloudflare}, applying \textbf{CDN caching and security rules} to \textbf{reduce page load times by 50\%} (from \textbf{3.2s to 1.6s}), \textbf{lower bandwidth costs}, and \textbf{shorten deployment time from hours to minutes}.}
 \resumeItemListEnd
 
 \resumeSubheading
-{Software Developer Intern}{Jun 2023 -- Aug 2023}
+{Software Developer}{Jun 2023 -- Dec 2023}
 {AST Consulting}{New Delhi, India}
 \resumeItemListStart
-\resumeItem{Built and scaled a full-stack SaaS platform (React, NestJS) serving 5k+ users, supporting 1.5k+ concurrent requests.}
-\resumeItem{Integrated REST/GraphQL APIs, automated billing with Stripe/Chargebee, and OpenAI for real-time content generation.}
-\resumeItem{Optimized MongoDB queries and caching to support heavy dashboards and large dataset processing.}
-\resumeItem{Configured AWS infra with GitHub Actions CI/CD and CloudFront CDN, reducing image load times by 50\%.}
-\resumeItem{Introduced improvements through structured code reviews, documentation, and testing, reducing post release bugs by 30\%.}
+\resumeItem{Built and scaled a \textbf{full-stack SaaS platform} using \textbf{React/Next.js} and \textbf{NestJS}, implementing \textbf{SSR}, dynamic routing, and state management with \textbf{Redux Toolkit} to improve \textbf{UX} and \textbf{SEO}, serving \textbf{5K+ users} and handling \textbf{1.5K+ concurrent requests}.}
+\resumeItem{Integrated \textbf{REST and GraphQL APIs}, implemented automated billing with \textbf{Stripe and Chargebee}, and embedded \textbf{OpenAI} for real-time content generation.}
+\resumeItem{Optimised \textbf{MongoDB queries} and \textbf{caching layers}, reducing query latency from \textbf{320ms to 180ms} to support \textbf{data-heavy dashboards}.}
+\resumeItem{Provisioned \textbf{AWS cloud infrastructure} with \textbf{GitHub Actions CI/CD} and \textbf{CloudFront CDN}, \textbf{reducing image load times by 50\%}, \textbf{accelerating deployments by 40\%}, and achieving \textbf{95\%+ uptime}.}
+\resumeItem{Established \textbf{code reviews, documentation, and automated testing}, reducing \textbf{post-release bugs by 30\%}.}
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
@@ -119,30 +123,30 @@ Full-stack Software Engineer focused on delivering responsive UIs and scalable b
 \resumeSubHeadingListStart
 
 \resumeProjectHeading
-{LeetCode MCP Server}{Node.js, TypeScript, Express}{\href{https://github.com/ayushjaipuriyar/leetcode-mcpserver}{GitHub}}
+{LeetCode MCP Server}{Node.js, TypeScript, Anthropic, OpenAI}{\href{https://github.com/ayushjaipuriyar/leetcode-mcpserver}{GitHub}}
 \resumeItemListStart
 \resumeItem{MCP server for exposing GraphQL endpoints for problems, user profiles, and authenticated code submission.}
 \resumeItem{Implemented submission relay with polling, caching and rate-limit handling, and published as an npm package.}
 \resumeItemListEnd
 
 \resumeProjectHeading
-{Segmentor}{Python, ffmpeg, tkinter}{\href{https://github.com/ayushjaipuriyar/animepahe-dl}{GitHub}}
+{Segmentor}{Python, ffmpeg, tkinter, PyQT}{\href{https://github.com/ayushjaipuriyar/animepahe-dl}{GitHub}}
 \resumeItemListStart
 \resumeItem{Built a multi threading CLI tool for downloading and assembling streaming .m3u8 segments, speeding up the download process.}
-\resumeItem{Added robust error handling and recovery logic, improving reliability by 70\%.}
+\resumeItem{Added robust error handling and recovery logic, improving reliability by \textbf{70\%}.}
 \resumeItemListEnd
 
 \resumeProjectHeading
-{Near-RT RIC ML-Based Malicious Traffic Detection}{Python, PyTorch, O-RAN}{\href{https://github.com/ayushjaipuriyar/ric-xapps-malicious-detection}{GitHub}}
+{Near-RT RIC ML-Based Malicious Traffic Detection}{Python, PyTorch, Tensorflow, O-RAN, ML, AI}{\href{https://github.com/ayushjaipuriyar/ric-xapps-malicious-detection}{GitHub}}
 \resumeItemListStart
-\resumeItem{Created an ML pipeline for real-time RAN traffic analysis achieving 67--73\% accuracy and up to 76\% F1.}
+\resumeItem{Created an ML pipeline for real-time RAN traffic analysis achieving \textbf{67--73\%} accuracy and up to \textbf{76\%} F1.}
 \resumeItem{Established data ingestion and monitoring workflows to process live network traffic.}
 \resumeItemListEnd
 
 \resumeProjectHeading
-{Vantage-14are05}{Linux, ACPI, Bash}{\href{https://github.com/ayushjaipuriyar/vantage-14are05}{GitHub}}
+{Vantage-14are05}{Linux, Unix, ACPI, Bash}{\href{https://github.com/ayushjaipuriyar/vantage-14are05}{GitHub}}
 \resumeItemListStart
-\resumeItem{Engineered a Linux utility exposing ACPI performance tuning controls, enabling profile switching and improving battery life by 20 to 30\%.}
+\resumeItem{Engineered a command line Linux utility exposing ACPI performance tuning controls, enabling profile switching and improving battery life by \textbf{20} to \textbf{30\%}.}
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
@@ -151,24 +155,26 @@ Full-stack Software Engineer focused on delivering responsive UIs and scalable b
 \section{Technical Skills}
 \small
 \begin{tabularx}{\textwidth}{p{4cm} X}
-\textbf{Languages:} & TypeScript, JavaScript, Python, C/C++, Java, SQL, Bash, HTML, CSS \\
-\textbf{Frameworks:} & React, Next.js, Redux, Node.js, NestJS, Express, Flask, Django, Spring Boot, FastAPI \\
-\textbf{Backend \& APIs:} & REST, GraphQL, WebSocket, microservices, API design \\
-\textbf{Databases:} & PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch \\
-\textbf{Cloud \& DevOps:} & AWS (EC2, S3, CloudFront), GCP, Docker, Kubernetes, Terraform, GitHub Actions, Jenkins, CI/CD \\
-\textbf{Testing:} & Jest, JUnit, Postman \\
+\textbf{Languages:} & Java, TypeScript, Python, C/C++, JavaScript, , SQL, Bash, HTML, CSS, GO \\
+\textbf{Frameworks:} & \textbf{Frontend:} ReactJS, Next.js, Redux \\
+\textbf{~} & \textbf{Backend:} Node.js, NestJS, Express, Flask, Django, Spring Boot, FastAPI, Spark, Kafka \\
+\textbf{Apis:} & REST, GraphQL, WebSocket, microservices, API design \\
+\textbf{Databases:} & PostgreSQL, MySQL, NoSQL, MongoDB, Firebase, Redis, Elasticsearch (ELK), BigQuery \\
+\textbf{Cloud \& DevOps:} & AWS (EC2, S3, CloudFront, Lambda), GCP, Docker, Kubernetes, Terraform, GitHub Actions, Jenkins, CI/CD, Jira, Cloudflare \\
+\textbf{Monitoring:} & Prometheus, Grafana, Datadog, OpenTelemetry, Cloudwatch, Logstash, Kibana  \\
+\textbf{Testing:} & Jest, JUnit, PyTest, Supertest, Postman \\
 \end{tabularx}
 
 
-%-----------PUBLICATIONS-----------
-\section{Publications}
-\resumeSubHeadingListStart
-\resumeSubheading
-{A Lossless Image Encryption Technique using Chaotic Map and DNA Encoding}{2025}
-{Multimedia Tools and Applications, Apr. 2025}{\href{https://doi.org/10.1007/s11042-025-20851-w}{https://doi.org/10.1007/s11042-025-20851-w}}
-\resumeSubHeadingListEnd
+% %-----------PUBLICATIONS-----------
+% \section{Publications}
+% \resumeSubHeadingListStart
+% \resumeSubheading
+% {A Lossless Image Encryption Technique using Chaotic Map and DNA Encoding}{2025}
+% {Multimedia Tools and Applications, Apr. 2025}{\hspace{-3.5cm}\href{https://doi.org/10.1007/s11042-025-20851-w}{https://doi.org/10.1007/s11042-025-20851-w}}
+% \resumeSubHeadingListEnd
 
-%-----------CERTIFICATIONS-----------
+% % -----------CERTIFICATIONS-----------
 % \section{Certifications}
 % \begin{itemize}[leftmargin=0.15in, label={},itemsep=0pt,parsep=0pt]
 %     \small{

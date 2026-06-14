@@ -267,3 +267,9 @@ TSWLatexianTemp*
 *.sta
 
 .vscode/
+
+
+.agents
+.claude
+.opencode
+skills-lock.json

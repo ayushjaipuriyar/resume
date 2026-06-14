@@ -18,12 +18,11 @@ jobs:
         with:
           fetch-depth: 0
           fetch-tags: true
+      
       - name: Get Latest Tag
         id: get_tag
         run: |
-          # Fetch all tags
           git fetch --tags
-          # Get the latest tag
           LATEST_TAG=$(git describe --tags --abbrev=0 || echo "v0")
           echo "Latest Tag: $LATEST_TAG"
           echo "current_version=$LATEST_TAG" >> $GITHUB_OUTPUT
@@ -31,7 +30,6 @@ jobs:
       - name: Increment Version
         id: increment_version
         run: |
-          # Extract version number from tag (assuming format like v1, v2, etc.)
           VERSION=$(echo "${{ steps.get_tag.outputs.current_version }}" | sed 's/^v//')
           echo "Current Version: $VERSION"
           NEXT_VERSION=$((VERSION + 1))
@@ -39,18 +37,34 @@ jobs:
           echo "Next Tag: $NEXT_TAG"
           echo "version=$NEXT_TAG" >> $GITHUB_OUTPUT
 
-      - name: Convert to PDF
+      - name: Compile Modular Version
         uses: xu-cheng/latex-action@v4
         with:
-          root_file: Ayush_Jaipuriyar.tex
-          # Enable caching for faster builds
-          latexmk_use_lualatex: false  # or true if using LuaLaTeX
+          root_file: main.tex
+          latexmk_use_lualatex: false
           latexmk_shell_escape: false
 
-      - name: Check PDF exists
+      - name: Rename Modular PDF
+        run: mv main.pdf Ayush_Jaipuriyar_Resume.pdf
+
+      - name: Compile Single-File Version
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: Ayush_Jaipuriyar_single_file.tex
+          latexmk_use_lualatex: false
+          latexmk_shell_escape: false
+
+      - name: Rename Single-File PDF
+        run: mv Ayush_Jaipuriyar_single_file.pdf Ayush_Jaipuriyar_Single_File_Resume.pdf
+
+      - name: Check PDFs exist
         run: |
-          if [ ! -f Ayush_Jaipuriyar.pdf ]; then
-            echo "PDF not generated"
+          if [ ! -f Ayush_Jaipuriyar_Resume.pdf ]; then
+            echo "Modular PDF not generated"
+            exit 1
+          fi
+          if [ ! -f Ayush_Jaipuriyar_Single_File_Resume.pdf ]; then
+            echo "Single-file PDF not generated"
             exit 1
           fi
 
@@ -69,5 +83,17 @@ jobs:
         with:
           tag_name: ${{ steps.increment_version.outputs.version }}
           files: |
-            Ayush_Jaipuriyar.pdf
-            Ayush_Jaipuriyar.tex
+            Ayush_Jaipuriyar_Resume.pdf
+            Ayush_Jaipuriyar_Single_File_Resume.pdf
+            main.tex
+            sections/*.tex
+            Ayush_Jaipuriyar_single_file.tex
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          include_files: |
+            Ayush_Jaipuriyar_Resume.pdf
+            Ayush_Jaipuriyar_Single_File_Resume.pdf
